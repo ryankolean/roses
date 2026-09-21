@@ -1,0 +1,30 @@
+; rosesdetroit.com zone capture
+; captured 2026-09-21T00:51:03Z from 1.1.1.1
+
+; --- SOA (apex) ---
+rosesdetroit.com.	86400	IN	SOA	ns1030.ui-dns.com. hostmaster.1und1.com. 2017060112 28800 7200 604800 600
+; --- NS (apex) ---
+rosesdetroit.com.	86400	IN	NS	ns1055.ui-dns.biz.
+rosesdetroit.com.	86400	IN	NS	ns1030.ui-dns.com.
+rosesdetroit.com.	86400	IN	NS	ns1125.ui-dns.org.
+rosesdetroit.com.	86400	IN	NS	ns1106.ui-dns.de.
+; --- A (apex) ---
+rosesdetroit.com.	3600	IN	A	162.120.94.90
+; --- AAAA (apex) ---
+; --- MX (apex) ---
+rosesdetroit.com.	3600	IN	MX	1 aspmx.l.google.com.
+rosesdetroit.com.	3600	IN	MX	10 alt3.aspmx.l.google.com.
+rosesdetroit.com.	3600	IN	MX	5 alt1.aspmx.l.google.com.
+rosesdetroit.com.	3600	IN	MX	5 alt2.aspmx.l.google.com.
+rosesdetroit.com.	3600	IN	MX	10 alt4.aspmx.l.google.com.
+; --- TXT (apex) ---
+rosesdetroit.com.	3600	IN	TXT	"google-site-verification=-G632jz8oLkiOWVwOjffz01JtBDW7EiDy5NFPbbskpY"
+rosesdetroit.com.	3600	IN	TXT	"v=spf1 include:_spf.google.com ~all"
+; --- CAA (apex) ---
+; --- www ---
+www.rosesdetroit.com.	3600	IN	CNAME	sites.toasttab.com.
+sites.toasttab.com.	300	IN	CNAME	fallback.sites.toasttab.com.cdn.cloudflare.net.
+fallback.sites.toasttab.com.cdn.cloudflare.net.	300 IN A 104.18.38.40
+fallback.sites.toasttab.com.cdn.cloudflare.net.	300 IN A 172.64.149.216
+www.rosesdetroit.com.	3600	IN	CNAME	sites.toasttab.com.
+; --- common subdomains ---
