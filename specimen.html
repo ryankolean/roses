@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Roses - palette and type specimen</title>
+<meta name="description" content="Proposed colour palette, type scale and component system for Roses, Detroit. Research output, pending approval.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#F0ECE6">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Measured from brand surfaces */
+  --paper:#F0ECE6;
+  --sage:#B3CDB4;
+  --crimson:#9C1B22;
+  --ember:#F97743;
+  /* Derived */
+  --sage-pale:#D5DED0;
+  --forest:#2D332D;
+  --crimson-deep:#701318;
+  --ink-mute:#5C6B5C;
+
+  --font-display:"EB Garamond",Georgia,"Times New Roman",serif;
+  --font-ui:"Montserrat",system-ui,-apple-system,sans-serif;
+
+  --s-1:4px;--s-2:8px;--s-3:12px;--s-4:16px;--s-5:24px;
+  --s-6:32px;--s-7:48px;--s-8:64px;--s-9:96px;--s-10:128px;
+
+  --radius-sm:2px;--radius-pill:999px;
+  --border:1px solid var(--crimson);
+  --border-hair:1px solid color-mix(in srgb, var(--crimson) 25%, transparent);
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--paper);color:var(--crimson);
+  font-family:var(--font-display);font-size:19px;line-height:1.65;
+  font-feature-settings:"onum" 1;
+}
+.container{max-width:1120px;margin:0 auto;padding:0 var(--s-5)}
+section{padding:var(--s-9) 0}
+section.sage{background:var(--sage)}
+section.pale{background:var(--sage-pale)}
+section.forest{background:var(--forest);color:var(--paper)}
+
+h1,h2,h3{font-family:var(--font-display);font-weight:500;margin:0 0 var(--s-4)}
+h1{font-size:52px;line-height:1.1;letter-spacing:-0.01em}
+h2{font-size:38px;line-height:1.15}
+h3{font-size:27px;line-height:1.25;font-weight:600}
+p{margin:0 0 var(--s-4);max-width:62ch}
+.display{font-size:68px;line-height:1.05;letter-spacing:-0.01em;font-weight:500;margin:0 0 var(--s-5)}
+.lede{font-size:22px;line-height:1.5}
+.small{font-family:var(--font-ui);font-size:14px;line-height:1.45}
+.label{font-family:var(--font-ui);font-size:13px;font-weight:700;line-height:1.2;
+  letter-spacing:.14em;text-transform:uppercase;margin:0 0 var(--s-4)}
+.mute{color:var(--ink-mute)}
+a{color:var(--crimson);text-underline-offset:3px}
+a:hover{color:var(--crimson-deep)}
+.forest a:not(.btn){color:var(--ember)}
+
+/* wavy rule motif */
+.rule{display:block;width:100%;height:14px;margin:var(--s-8) 0;color:var(--crimson)}
+.forest .rule{color:var(--paper)}
+
+/* palette */
+.swatches{display:grid;gap:var(--s-4);grid-template-columns:repeat(auto-fill,minmax(184px,1fr));margin-top:var(--s-6)}
+.sw{border:var(--border-hair);border-radius:var(--radius-sm);overflow:hidden;background:#fff0}
+.sw .chip{height:104px}
+.sw .meta{padding:var(--s-3) var(--s-4) var(--s-4);font-family:var(--font-ui);font-size:13px;line-height:1.5}
+.sw code{font-family:var(--font-ui);font-weight:700;letter-spacing:.02em}
+.sw .src{display:block;margin-top:var(--s-1);color:var(--ink-mute);font-size:12px}
+
+/* tables */
+table{width:100%;border-collapse:collapse;margin:var(--s-5) 0 0;font-family:var(--font-ui);font-size:14px}
+th,td{text-align:left;padding:var(--s-3) var(--s-3) var(--s-3) 0;border-bottom:var(--border-hair);vertical-align:top}
+th{font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:12px}
+.forest th,.forest td{border-bottom-color:color-mix(in srgb, var(--paper) 25%, transparent)}
+.pass{font-weight:700}
+.fail{font-weight:700;color:var(--crimson-deep)}
+.ratio{font-variant-numeric:tabular-nums lining-nums}
+.pairbox{display:inline-block;padding:2px var(--s-2);border-radius:var(--radius-sm);white-space:nowrap}
+
+/* buttons */
+.btn{display:inline-block;font-family:var(--font-ui);font-size:15px;font-weight:700;
+  letter-spacing:.04em;padding:var(--s-3) var(--s-6);border-radius:var(--radius-pill);
+  text-decoration:none;border:1px solid transparent;cursor:pointer;
+  min-height:44px;line-height:1.35;transition:background-color 150ms ease-out,color 150ms ease-out,border-color 150ms ease-out}
+.btn--primary{background:var(--ember);color:var(--forest)}
+.btn--primary:hover{background:#E4642F;color:var(--forest)}
+.btn--secondary{background:transparent;color:var(--crimson);border-color:var(--crimson)}
+.btn--secondary:hover{background:var(--crimson);color:var(--paper)}
+.btn--ghost{background:transparent;color:var(--crimson);padding-left:0;padding-right:0}
+.btn--ghost:hover{color:var(--crimson-deep);text-decoration:underline}
+.btn:focus-visible{outline:2px solid var(--crimson);outline-offset:2px}
+.forest .btn:focus-visible{outline-color:var(--paper)}
+.btnrow{display:flex;flex-wrap:wrap;gap:var(--s-4);align-items:center;margin-top:var(--s-5)}
+
+/* menu rows */
+.menu-section{margin-top:var(--s-7)}
+.dish{margin:0 0 var(--s-5);max-width:46ch}
+.dish__name{font-family:var(--font-ui);font-weight:700;font-size:19px;line-height:1.3;margin:0}
+.dish__desc{font-size:17px;line-height:1.5;margin:0}
+.menu-grid{display:grid;gap:0 var(--s-8);grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.stamp{font-family:var(--font-ui);font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-mute)}
+
+/* type scale */
+.spec{border-bottom:var(--border-hair);padding:var(--s-5) 0;display:grid;gap:var(--s-3);
+  grid-template-columns:150px 1fr;align-items:baseline}
+.spec__meta{font-family:var(--font-ui);font-size:12px;line-height:1.5;color:var(--ink-mute);letter-spacing:.04em}
+.spec__sample{min-width:0;overflow-wrap:break-word}
+
+/* cards */
+.cards{display:grid;gap:var(--s-4);grid-template-columns:repeat(auto-fit,minmax(248px,1fr));margin-top:var(--s-5)}
+.card{background:var(--sage-pale);border-radius:var(--radius-sm);padding:var(--s-6)}
+.card h3{margin-bottom:var(--s-2);font-size:22px}
+.card p{margin:0;font-size:17px}
+
+/* form */
+.field{max-width:420px;margin-top:var(--s-5)}
+.field label{display:block;font-family:var(--font-ui);font-size:13px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;margin-bottom:var(--s-2)}
+.field input{width:100%;font-family:var(--font-display);font-size:19px;color:var(--crimson);
+  background:transparent;padding:var(--s-3) var(--s-2);border-radius:var(--radius-sm);
+  border:var(--border-hair);border-bottom:var(--border)}
+.field input:focus{outline:2px solid var(--crimson);outline-offset:2px;border-bottom-width:2px}
+.field .err{color:var(--crimson-deep);font-family:var(--font-ui);font-size:13px;margin-top:var(--s-2)}
+
+.note{border-left:3px solid var(--crimson);padding-left:var(--s-4);margin:var(--s-5) 0;max-width:62ch}
+.forest .note{border-left-color:var(--ember)}
+
+@media (max-width:640px){
+  body{font-size:18px}
+  section{padding:var(--s-7) 0}
+  .container{padding:0 var(--s-4)}
+  .display{font-size:40px}
+  h1{font-size:34px}
+  h2{font-size:28px}
+  h3{font-size:22px}
+  .lede{font-size:19px}
+  .spec{grid-template-columns:1fr;gap:var(--s-2)}
+  .menu-grid{gap:0}
+  /* tables carry more columns than a phone has room for; let each one
+     scroll inside itself rather than pushing the whole page sideways */
+  table{display:block;max-width:100%;overflow-x:auto;font-size:13px}
+  th,td{padding-right:var(--s-4)}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition-duration:0.01ms !important;animation-duration:0.01ms !important}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="wave" viewBox="0 0 1200 14" preserveAspectRatio="none">
+    <path d="M0 3q25-3 50 0t50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0"
+      fill="none" stroke="currentColor" stroke-width="2.4"/>
+    <path d="M0 8q25 3 50 0t50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0"
+      fill="none" stroke="currentColor" stroke-width="2.4"/>
+    <rect x="0" y="12" width="1200" height="2" fill="currentColor"/>
+  </symbol>
+</svg>
+
+<header class="container" style="padding-top:var(--s-8)">
+  <p class="label">Roses &middot; Detroit &middot; research output, pending approval</p>
+  <p class="display">Witamy.</p>
+  <p class="lede" style="max-width:52ch">Enchanting Polish restaurant using the best of Michigan produce on Detroit&rsquo;s East Side.</p>
+  <p class="small mute">The line above is the owner&rsquo;s own, from linktr.ee/RosesDetroit. Everything on this page is either measured from a Roses brand surface or derived from a measured value by a stated operation.</p>
+  <div class="btnrow">
+    <a class="btn btn--primary" href="#palette">See the palette</a>
+    <a class="btn btn--secondary" href="#type">See the type</a>
+  </div>
+  <svg class="rule" aria-hidden="true"><use href="#wave"/></svg>
+</header>
+
+<section id="palette" style="padding-top:0">
+  <div class="container">
+    <p class="label">Colour</p>
+    <h2>Four measured anchors.</h2>
+    <p>Sage and crimson are lifted from the printed menu, the restaurant&rsquo;s real brand surface. Ember is the logo bow. Paper is the background the restaurant already chose. The remaining four are blends of those, and the blend is stated.</p>
+
+    <div class="swatches">
+      <div class="sw"><div class="chip" style="background:#F0ECE6;border-bottom:var(--border-hair)"></div>
+        <div class="meta"><code>--paper</code><br>#F0ECE6<span class="src">Measured &middot; live site body background</span></div></div>
+      <div class="sw"><div class="chip" style="background:#B3CDB4"></div>
+        <div class="meta"><code>--sage</code><br>#B3CDB4<span class="src">Measured &middot; printed menu ground, 76k of 128k px</span></div></div>
+      <div class="sw"><div class="chip" style="background:#9C1B22"></div>
+        <div class="meta"><code>--crimson</code><br>#9C1B22<span class="src">Measured &middot; printed menu ink and illustration</span></div></div>
+      <div class="sw"><div class="chip" style="background:#F97743"></div>
+        <div class="meta"><code>--ember</code><br>#F97743<span class="src">Measured &middot; redbow.png, 41.5k opaque px</span></div></div>
+      <div class="sw"><div class="chip" style="background:#D5DED0"></div>
+        <div class="meta"><code>--sage-pale</code><br>#D5DED0<span class="src">Derived &middot; sage 55% toward paper</span></div></div>
+      <div class="sw"><div class="chip" style="background:#2D332D"></div>
+        <div class="meta"><code>--forest</code><br>#2D332D<span class="src">Derived &middot; sage 75% toward black</span></div></div>
+      <div class="sw"><div class="chip" style="background:#701318"></div>
+        <div class="meta"><code>--crimson-deep</code><br>#701318<span class="src">Derived &middot; crimson 28% toward black</span></div></div>
+      <div class="sw"><div class="chip" style="background:#5C6B5C"></div>
+        <div class="meta"><code>--ink-mute</code><br>#5C6B5C<span class="src">Derived &middot; desaturated forest</span></div></div>
+    </div>
+
+    <div class="note">
+      <p style="margin:0">The live site&rsquo;s green <code style="font-family:var(--font-ui)">#3D8B61</code> and orange <code style="font-family:var(--font-ui)">#E8682D</code> are replaced. Measured against the page background they score <strong>3.52:1</strong> and <strong>2.77:1</strong>, so nearly all body text on rosesdetroit.com today fails WCAG AA.</p>
+    </div>
+  </div>
+</section>
+
+<section class="pale">
+  <div class="container">
+    <p class="label">Contrast</p>
+    <h2>Every pair in the system, checked.</h2>
+    <p>WCAG 2.1 relative luminance. AA needs 4.5:1 for normal text and 3:1 for large text.</p>
+    <table>
+      <thead><tr><th>Sample</th><th>Foreground</th><th>Background</th><th>Ratio</th><th>AA normal</th><th>AAA</th></tr></thead>
+      <tbody>
+        <tr><td><span class="pairbox" style="background:#F0ECE6;color:#9C1B22">Pierogi Ruskie</span></td><td>crimson</td><td>paper</td><td class="ratio">6.88</td><td class="pass">pass</td><td>&mdash;</td></tr>
+        <tr><td><span class="pairbox" style="background:#B3CDB4;color:#9C1B22">Pierogi Ruskie</span></td><td>crimson</td><td>sage</td><td class="ratio">4.75</td><td class="pass">pass</td><td>&mdash;</td></tr>
+        <tr><td><span class="pairbox" style="background:#D5DED0;color:#9C1B22">Pierogi Ruskie</span></td><td>crimson</td><td>sage-pale</td><td class="ratio">5.86</td><td class="pass">pass</td><td>&mdash;</td></tr>
+        <tr><td><span class="pairbox" style="background:#F0ECE6;color:#701318">Pierogi Ruskie</span></td><td>crimson-deep</td><td>paper</td><td class="ratio">9.94</td><td class="pass">pass</td><td class="pass">pass</td></tr>
+        <tr><td><span class="pairbox" style="background:#B3CDB4;color:#701318">Pierogi Ruskie</span></td><td>crimson-deep</td><td>sage</td><td class="ratio">6.86</td><td class="pass">pass</td><td>&mdash;</td></tr>
+        <tr><td><span class="pairbox" style="background:#F0ECE6;color:#2D332D">Pierogi Ruskie</span></td><td>forest</td><td>paper</td><td class="ratio">11.00</td><td class="pass">pass</td><td class="pass">pass</td></tr>
+        <tr><td><span class="pairbox" style="background:#B3CDB4;color:#2D332D">Pierogi Ruskie</span></td><td>forest</td><td>sage</td><td class="ratio">7.58</td><td class="pass">pass</td><td class="pass">pass</td></tr>
+        <tr><td><span class="pairbox" style="background:#D5DED0;color:#2D332D">Pierogi Ruskie</span></td><td>forest</td><td>sage-pale</td><td class="ratio">9.36</td><td class="pass">pass</td><td class="pass">pass</td></tr>
+        <tr><td><span class="pairbox" style="background:#F97743;color:#2D332D">Reserve a table</span></td><td>forest</td><td>ember</td><td class="ratio">4.77</td><td class="pass">pass</td><td>&mdash;</td></tr>
+        <tr><td><span class="pairbox" style="background:#2D332D;color:#F0ECE6">Pierogi Ruskie</span></td><td>paper</td><td>forest</td><td class="ratio">11.00</td><td class="pass">pass</td><td class="pass">pass</td></tr>
+        <tr><td><span class="pairbox" style="background:#2D332D;color:#B3CDB4">Pierogi Ruskie</span></td><td>sage</td><td>forest</td><td class="ratio">7.58</td><td class="pass">pass</td><td class="pass">pass</td></tr>
+        <tr><td><span class="pairbox" style="background:#2D332D;color:#F97743">Pierogi Ruskie</span></td><td>ember</td><td>forest</td><td class="ratio">4.77</td><td class="pass">pass</td><td>&mdash;</td></tr>
+        <tr><td><span class="pairbox" style="background:#9C1B22;color:#F0ECE6">Reserve a table</span></td><td>paper</td><td>crimson</td><td class="ratio">6.88</td><td class="pass">pass</td><td>&mdash;</td></tr>
+        <tr><td><span class="pairbox" style="background:#F0ECE6;color:#5C6B5C">Menu as of 20 Sept</span></td><td>ink-mute</td><td>paper</td><td class="ratio">4.81</td><td class="pass">pass</td><td>&mdash;</td></tr>
+      </tbody>
+    </table>
+
+    <h3 style="margin-top:var(--s-8)">Forbidden</h3>
+    <p>Three combinations fail. They are printed here so nobody reinvents them.</p>
+    <table>
+      <thead><tr><th>Sample</th><th>Pair</th><th>Ratio</th><th>Rule</th></tr></thead>
+      <tbody>
+        <tr><td><span class="pairbox" style="background:#F97743;color:#F0ECE6">Reserve a table</span></td><td>paper on ember</td><td class="ratio">2.30</td><td class="fail">Never. Ember buttons take forest text</td></tr>
+        <tr><td><span class="pairbox" style="background:#F97743;color:#9C1B22">Reserve a table</span></td><td>crimson on ember</td><td class="ratio">2.99</td><td class="fail">Never</td></tr>
+        <tr><td><span class="pairbox" style="background:#B3CDB4;color:#5C6B5C">Secondary text</span></td><td>ink-mute on sage</td><td class="ratio">3.32</td><td class="fail">Large text only. Use forest</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="type">
+  <div class="container">
+    <p class="label">Typography</p>
+    <h2>EB Garamond and Montserrat.</h2>
+    <p>Both are visual matches to the faces on the printed menu, not confirmed originals. EB Garamond reproduces the oldstyle serif of the dish descriptions, including the oldstyle figures. Montserrat reproduces the heavy geometric sans of the dish names and section heads. Swap either the moment the real files arrive.</p>
+    <div class="note">
+      <p style="margin:0">The ornate Victorian face used for the word <em>Menu</em> on the printed menu is <strong>unidentified</strong>. Until the source file arrives it appears only as artwork inside the logo lockup, never as live text. Half-matching an ornate display face looks worse than not using one.</p>
+    </div>
+
+    <div style="margin-top:var(--s-7)">
+      <div class="spec"><div class="spec__meta">Display<br>EB Garamond 500<br>68 / 40px</div><div class="spec__sample"><span class="display" style="display:block;margin:0">My diner phoenix</span></div></div>
+      <div class="spec"><div class="spec__meta">h1<br>EB Garamond 500<br>52 / 34px</div><div class="spec__sample"><h1 style="margin:0">Polish American, Michigan grown</h1></div></div>
+      <div class="spec"><div class="spec__meta">h2<br>EB Garamond 500<br>38 / 28px</div><div class="spec__sample"><h2 style="margin:0">The menu changes with the farms</h2></div></div>
+      <div class="spec"><div class="spec__meta">h3<br>EB Garamond 600<br>27 / 22px</div><div class="spec__sample"><h3 style="margin:0">Closed Tuesday</h3></div></div>
+      <div class="spec"><div class="spec__meta">Lede<br>EB Garamond 400<br>22 / 19px</div><div class="spec__sample"><p class="lede" style="margin:0">A diner on East Jefferson since 2014. Closed in 2023. Open again since September 2025.</p></div></div>
+      <div class="spec"><div class="spec__meta">Body<br>EB Garamond 400<br>19 / 18px &middot; 1.65</div><div class="spec__sample"><p style="margin:0">Reservations open thirty days out on Resy, for the dining room and the bar. Walk-ins are welcome. There is a fifteen minute grace period, and if your party changes size, call the day before and we will do our best.</p></div></div>
+      <div class="spec"><div class="spec__meta">Dish name<br>Montserrat 700<br>19 / 18px</div><div class="spec__sample"><p class="dish__name" style="margin:0">Makrela &Zdot;wie&zdot;a</p></div></div>
+      <div class="spec"><div class="spec__meta">Dish description<br>EB Garamond 400<br>17 / 16px</div><div class="spec__sample"><p class="dish__desc" style="margin:0">whole fish, crispy skin, dill butter, pickled lemon, herbs (gf) $52</p></div></div>
+      <div class="spec"><div class="spec__meta">Section label<br>Montserrat 700<br>13px &middot; 0.14em caps</div><div class="spec__sample"><p class="label" style="margin:0">Snacks, salads &amp; sides</p></div></div>
+      <div class="spec"><div class="spec__meta">Small<br>Montserrat 400<br>14px</div><div class="spec__sample"><p class="small" style="margin:0">Photographs by Jacob Lewkow. Flowers by The Flowering Hearth.</p></div></div>
+    </div>
+
+    <p class="small mute" style="margin-top:var(--s-6)">Body is set at 19px rather than 16px because EB Garamond has a small x-height; 19px is the equivalent optical size to a 16px sans.</p>
+  </div>
+</section>
+
+<section class="sage">
+  <div class="container">
+    <p class="label">The menu, as it would read</p>
+    <h2>Real text, not a picture of text.</h2>
+    <p class="stamp" style="margin-bottom:var(--s-6)">Menu as of 20 September 2026 &middot; it changes with what the farms have</p>
+
+    <div class="menu-grid">
+      <div>
+        <div class="menu-section">
+          <p class="label">Snacks, salads &amp; sides</p>
+          <div class="dish"><p class="dish__name">Bread Platter</p><p class="dish__desc">Lillian&rsquo;s Loaves sourdough, caraway butter, Babcia&rsquo;s pickles, dill oil, pickled red onion $24</p></div>
+          <div class="dish"><p class="dish__name">Polish Nachos</p><p class="dish__desc">house-made potato chips, Ma Coen&rsquo;s smoked whitefish, cucumbers, caramelized onion, pickled red onion, trout roe and herbed creme fraiche (gf) $22</p></div>
+          <div class="dish"><p class="dish__name">Pole Town Salad</p><p class="dish__desc">Detroit grown greens, dill pickle dressing, parmesan, croutons $16</p></div>
+          <div class="dish"><p class="dish__name">Ch&lstrok;odnik</p><p class="dish__desc">chilled beet soup, cucumber, creme fraiche, herbs and egg $17</p></div>
+        </div>
+      </div>
+      <div>
+        <div class="menu-section">
+          <p class="label">Mains</p>
+          <div class="dish"><p class="dish__name">Roses Burger</p><p class="dish__desc">sourdough, Marrow dry aged ground beef, bacon jam, mustard, pickled red onion and cabbage slaw $23</p></div>
+          <div class="dish"><p class="dish__name">Pierogi Ruskie</p><p class="dish__desc">classic pierogi filled with potato, creme fraiche, bacon jam $36</p></div>
+          <div class="dish"><p class="dish__name">Lamb Go&lstrok;&aogon;bki</p><p class="dish__desc">tomato pepper broth, dill oil, preserved lemon creme fraiche (gf) $26</p></div>
+          <div class="dish"><p class="dish__name">Uszka</p><p class="dish__desc">fresh cheese filled dumplings, lemon butter sauce, roasted beets, dill $24</p></div>
+        </div>
+      </div>
+    </div>
+    <svg class="rule" aria-hidden="true"><use href="#wave"/></svg>
+    <p class="small" style="margin:0">Set exactly as the printed menu sets it: name on its own line, price at the end of the description, dietary tags inline. No dot leaders, no right-aligned price column.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <p class="label">Components</p>
+    <h2>Buttons, cards, fields.</h2>
+
+    <h3 style="margin-top:var(--s-7)">Buttons</h3>
+    <div class="btnrow">
+      <a class="btn btn--primary" href="#components">Reserve on Resy</a>
+      <a class="btn btn--secondary" href="#components">See the menu</a>
+      <a class="btn btn--ghost" href="#components">Getting here</a>
+    </div>
+    <p class="small mute" style="margin-top:var(--s-4)">Primary buttons take <code style="font-family:var(--font-ui)">--forest</code> text on ember, never paper. Paper on ember is 2.30:1.</p>
+
+    <h3 style="margin-top:var(--s-8)">Cards</h3>
+    <div class="cards">
+      <div class="card"><h3>Closed Tuesday</h3><p>Four to ten Sunday, Monday, Wednesday and Thursday. Four to eleven Friday and Saturday.</p></div>
+      <div class="card"><h3>Walk-ins welcome</h3><p>Reservations open thirty days out on Resy, dining room and bar.</p></div>
+      <div class="card"><h3>The garden</h3><p>Out back, where the flowers on your table came from.</p></div>
+    </div>
+
+    <h3 style="margin-top:var(--s-8)">Fields</h3>
+    <div class="field">
+      <label for="email">Email</label>
+      <input id="email" type="email" placeholder="you@example.com">
+      <p class="err">Placeholders are not labels.</p>
+    </div>
+
+    <h3 style="margin-top:var(--s-8)">Divider</h3>
+    <p>The wavy rule from the printed menu is the section divider across the whole site. It is the cheapest and most repeatable piece of the motif system.</p>
+    <svg class="rule" aria-hidden="true"><use href="#wave"/></svg>
+  </div>
+</section>
+
+<section class="forest">
+  <div class="container">
+    <p class="label">Motif</p>
+    <h2>Polish papercut, one ink.</h2>
+    <p>The printed menu carries six <em>wycinanki</em> figures: a rose rosette, wheat sheaves, a peacock among foliage, a woman carrying a basket of bread, a footed bowl of fruit, and this wavy rule. All in a single crimson ink weight. It is specific, it is ownable, and nothing else in Detroit dining looks like it.</p>
+    <svg class="rule" aria-hidden="true"><use href="#wave"/></svg>
+    <div class="note">
+      <p style="margin:0"><strong>Only the wavy rule is reproduced here.</strong> The five figurative motifs are still locked inside a flattened JPEG. They must be vectorised from the designer&rsquo;s source files, not traced. Tracing a papercut from a compressed image loses exactly the crispness that makes it a papercut.</p>
+    </div>
+    <div class="btnrow">
+      <a class="btn btn--primary" href="design-catalog/assets-needed.md">What we need from the owner</a>
+    </div>
+  </div>
+</section>
+
+<footer class="container" style="padding:var(--s-8) var(--s-5)">
+  <svg class="rule" style="margin-top:0" aria-hidden="true"><use href="#wave"/></svg>
+  <p class="label">Roses &middot; specimen v1.0</p>
+  <p class="small mute" style="max-width:62ch;margin:0">Research output for SUMMIT-179, 20 September 2026. Not a website. Every colour is measured from a Roses brand surface or derived from one by a stated blend; every contrast ratio above is computed, not estimated. Fonts are visual matches pending confirmation. Full working in <code style="font-family:var(--font-ui)">design-catalog/</code>.</p>
+</footer>
+
+</body>
+</html>
