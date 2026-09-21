@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Roses - research and design package</title>
+<meta name="description" content="Research and design package for a new Roses (Detroit) website: current-site audit, brand system, element inventory and build recommendation.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#F0ECE6">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F0ECE6;--sage:#B3CDB4;--crimson:#9C1B22;--ember:#F97743;
+  --sage-pale:#D5DED0;--forest:#2D332D;--crimson-deep:#701318;--ink-mute:#5C6B5C;
+  --font-display:"EB Garamond",Georgia,"Times New Roman",serif;
+  --font-ui:"Montserrat",system-ui,-apple-system,sans-serif;
+  --s-1:4px;--s-2:8px;--s-3:12px;--s-4:16px;--s-5:24px;
+  --s-6:32px;--s-7:48px;--s-8:64px;--s-9:96px;
+  --radius-sm:2px;--radius-pill:999px;
+  --border:1px solid var(--crimson);
+  --border-hair:1px solid color-mix(in srgb, var(--crimson) 25%, transparent);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--crimson);
+  font-family:var(--font-display);font-size:19px;line-height:1.65;font-feature-settings:"onum" 1}
+.container{max-width:1120px;margin:0 auto;padding:0 var(--s-5)}
+section{padding:var(--s-9) 0}
+section.sage{background:var(--sage)}
+section.forest{background:var(--forest);color:var(--paper)}
+h1,h2,h3{font-family:var(--font-display);font-weight:500;margin:0 0 var(--s-4)}
+h1{font-size:52px;line-height:1.1;letter-spacing:-0.01em}
+h2{font-size:38px;line-height:1.15}
+h3{font-size:22px;line-height:1.3;font-weight:600}
+p{margin:0 0 var(--s-4);max-width:62ch}
+.display{font-size:68px;line-height:1.05;letter-spacing:-0.01em;font-weight:500;margin:0 0 var(--s-5)}
+.lede{font-size:22px;line-height:1.5}
+.small{font-family:var(--font-ui);font-size:14px;line-height:1.45}
+.label{font-family:var(--font-ui);font-size:13px;font-weight:700;line-height:1.2;
+  letter-spacing:.14em;text-transform:uppercase;margin:0 0 var(--s-4)}
+.mute{color:var(--ink-mute)}
+.forest .mute{color:var(--sage)}
+a{color:var(--crimson);text-underline-offset:3px}
+a:hover{color:var(--crimson-deep)}
+.forest a:not(.btn){color:var(--ember)}
+.rule{display:block;width:100%;height:14px;margin:var(--s-8) 0;color:var(--crimson)}
+.forest .rule{color:var(--paper)}
+.btn{display:inline-block;font-family:var(--font-ui);font-size:15px;font-weight:700;
+  letter-spacing:.04em;padding:var(--s-3) var(--s-6);border-radius:var(--radius-pill);
+  text-decoration:none;border:1px solid transparent;min-height:44px;line-height:1.35;
+  transition:background-color 150ms ease-out,color 150ms ease-out,border-color 150ms ease-out}
+.btn--primary{background:var(--ember);color:var(--forest)}
+.btn--primary:hover{background:#E4642F;color:var(--forest)}
+.btn--secondary{background:transparent;color:var(--crimson);border-color:var(--crimson)}
+.btn--secondary:hover{background:var(--crimson);color:var(--paper)}
+.btn:focus-visible{outline:2px solid var(--crimson);outline-offset:2px}
+.forest .btn:focus-visible{outline-color:var(--paper)}
+.btnrow{display:flex;flex-wrap:wrap;gap:var(--s-4);align-items:center;margin-top:var(--s-5)}
+.docs{display:grid;gap:var(--s-4);grid-template-columns:repeat(auto-fit,minmax(300px,1fr));margin-top:var(--s-6)}
+.doc{background:var(--sage-pale);border-radius:var(--radius-sm);padding:var(--s-6);display:block;
+  text-decoration:none;color:var(--crimson);transition:background-color 150ms ease-out}
+.doc:hover{background:#C9D5C4;color:var(--crimson-deep)}
+.doc h3{margin-bottom:var(--s-2)}
+.doc p{margin:0;font-size:17px;max-width:none}
+.doc .file{font-family:var(--font-ui);font-size:12px;letter-spacing:.06em;
+  color:var(--ink-mute);display:block;margin-top:var(--s-3);word-break:break-all}
+.findings{margin:var(--s-6) 0 0;padding:0;list-style:none;max-width:70ch}
+.findings li{padding:var(--s-4) 0;border-bottom:var(--border-hair)}
+.forest .findings li{border-bottom-color:color-mix(in srgb, var(--paper) 25%, transparent)}
+.findings strong{font-family:var(--font-ui);font-size:15px;letter-spacing:.01em;display:block;margin-bottom:var(--s-1)}
+.note{border-left:3px solid var(--crimson);padding-left:var(--s-4);margin:var(--s-6) 0;max-width:62ch}
+.forest .note{border-left-color:var(--ember)}
+@media (max-width:640px){
+  body{font-size:18px}
+  section{padding:var(--s-7) 0}
+  .container{padding:0 var(--s-4)}
+  .display{font-size:40px}
+  h1{font-size:34px}
+  h2{font-size:28px}
+  .lede{font-size:19px}
+}
+@media (prefers-reduced-motion:reduce){*{transition-duration:0.01ms !important;animation-duration:0.01ms !important}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="wave" viewBox="0 0 1200 14" preserveAspectRatio="none">
+    <path d="M0 3q25-3 50 0t50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0" fill="none" stroke="currentColor" stroke-width="2.4"/>
+    <path d="M0 8q25 3 50 0t50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0 50 0" fill="none" stroke="currentColor" stroke-width="2.4"/>
+    <rect x="0" y="12" width="1200" height="2" fill="currentColor"/>
+  </symbol>
+</svg>
+
+<header class="container" style="padding-top:var(--s-8)">
+  <p class="label">Summit Software Solutions &middot; research package &middot; SUMMIT-179</p>
+  <p class="display">Roses</p>
+  <p class="lede" style="max-width:56ch">A research and design package for a new website. Not a website. Nothing here is live, and nobody at the restaurant has been contacted.</p>
+  <div class="btnrow">
+    <a class="btn btn--primary" href="../specimen.html">Palette and type specimen</a>
+    <a class="btn btn--secondary" href="https://github.com/ryankolean/roses">The repo</a>
+  </div>
+  <svg class="rule" aria-hidden="true"><use href="#wave"/></svg>
+</header>
+
+<section style="padding-top:0">
+  <div class="container">
+    <p class="label">The situation</p>
+    <h2>The reputation and the website are not the same restaurant.</h2>
+    <p>Inside twelve months Roses has won the <strong>Detroit Free Press 2026 Restaurant of the Year</strong>, landed on the <strong>New York Times&rsquo; 50 favourite restaurants in America</strong>, taken a <strong>Detroit News three-star review</strong> and made <strong>Hour Detroit&rsquo;s Best New Restaurants</strong>.</p>
+    <p>Its website is an unedited Toast Sites template wrapped around a single JPEG. It mentions none of the awards, links no reservation, and publishes facts that are wrong.</p>
+
+    <ul class="findings">
+      <li><strong>The menu is a picture.</strong> One JPEG, rendered 359&times;408 CSS px on a 390px phone, with alt text that names no dish. No indexable menu text, no <code>Menu</code> schema. A blind guest cannot read it at all.</li>
+      <li><strong>/contact publishes the closed diner&rsquo;s hours.</strong> &ldquo;Open Tuesday-Sunday, 8am to 3pm. Closed Mondays.&rdquo; Roses is dinner-only and closed Tuesday. It contradicts the live hours widget on the same page.</li>
+      <li><strong>/our-story claims the business dates from 1964.</strong> The building does. Rose&rsquo;s Fine Food opened in 2014, closed in 2023, reopened in 2025. The page invents a multi-generation family history.</li>
+      <li><strong>/gallery advertises breakfast and lunch</strong> at a dinner-only restaurant, and contains no photographs.</li>
+      <li><strong>/order is broken</strong> and is linked from the primary navigation.</li>
+      <li><strong>No reservation path exists on the site</strong>, although the restaurant books on Resy.</li>
+      <li><strong>Body text fails WCAG AA.</strong> Measured at 3.52:1. The <code>h1</code> measures 2.77:1.</li>
+      <li><strong>The name renders five different ways</strong> across surfaces the restaurant owns. Yelp carries two duplicate listings, both filed under Breakfast &amp; Brunch.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="sage">
+  <div class="container">
+    <p class="label">The good news</p>
+    <h2>The brand already exists. It is on the printed menu.</h2>
+    <p>Sage <code>#B3CDB4</code> and crimson <code>#9C1B22</code> are pixel-sampled from the menu artwork. Ember <code>#F97743</code> is sampled from the logo bow. The illustration system is Polish papercut, <em>wycinanki</em>: a rose rosette, wheat sheaves, a peacock, a woman carrying bread, a bowl of fruit, and the wavy rule running down this page.</p>
+    <p>None of it has ever appeared on the website.</p>
+    <div class="btnrow">
+      <a class="btn btn--primary" href="../specimen.html">See the proposed system</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <p class="label">The package</p>
+    <h2>Eight documents, one specimen.</h2>
+    <p>Every colour is measured from a Roses brand surface or derived from one by a stated blend. Every contrast ratio is computed. Anything unverifiable is labelled unverified rather than guessed.</p>
+
+    <div class="docs">
+      <a class="doc" href="https://github.com/ryankolean/roses/blob/main/design-catalog/rosesdetroit-com-design-spec.md">
+        <h3>Current-site audit</h3>
+        <p>Platform, IA, measured palette and type, accessibility, SEO, and what Toast&rsquo;s Cloudflare layer does to crawlers.</p>
+        <span class="file">design-catalog/rosesdetroit-com-design-spec.md</span>
+      </a>
+      <a class="doc" href="https://github.com/ryankolean/roses/blob/main/design-catalog/instagram-brand-intel.md">
+        <h3>Instagram brand intel</h3>
+        <p>@roses_detroit: identity, voice, collaborators, and the gap between the feed and the site.</p>
+        <span class="file">design-catalog/instagram-brand-intel.md</span>
+      </a>
+      <a class="doc" href="https://github.com/ryankolean/roses/blob/main/design-catalog/press-and-story.md">
+        <h3>Press and story</h3>
+        <p>Awards timeline, pull quotes, the real Rose&rsquo;s Fine Food lineage, photography leads.</p>
+        <span class="file">design-catalog/press-and-story.md</span>
+      </a>
+      <a class="doc" href="https://github.com/ryankolean/roses/blob/main/design-catalog/competitive-scan.md">
+        <h3>Competitive scan</h3>
+        <p>How ten Detroit peers publish a menu that changes. Marrow is the model.</p>
+        <span class="file">design-catalog/competitive-scan.md</span>
+      </a>
+      <a class="doc" href="https://github.com/ryankolean/roses/blob/main/design-catalog/site-elements.md">
+        <h3>Element inventory</h3>
+        <p>Every element the new site needs, prioritised, plus the full August 2026 menu transcribed to text.</p>
+        <span class="file">design-catalog/site-elements.md</span>
+      </a>
+      <a class="doc" href="https://github.com/ryankolean/roses/blob/main/design-catalog/brand-guidelines.md">
+        <h3>Brand guidelines</h3>
+        <p>Palette, type, style guide, motif system, logo rules, voice, and the traceability table.</p>
+        <span class="file">design-catalog/brand-guidelines.md</span>
+      </a>
+      <a class="doc" href="https://github.com/ryankolean/roses/blob/main/design-catalog/build-recommendation.md">
+        <h3>Build recommendation</h3>
+        <p>Stack, the menu-update path, DNS position, estimate and ticket breakdown.</p>
+        <span class="file">design-catalog/build-recommendation.md</span>
+      </a>
+      <a class="doc" href="https://github.com/ryankolean/roses/blob/main/design-catalog/assets-needed.md">
+        <h3>Assets needed</h3>
+        <p>One list of everything we need from the owner, plus seven things they should fix today regardless.</p>
+        <span class="file">design-catalog/assets-needed.md</span>
+      </a>
+      <a class="doc" href="https://github.com/ryankolean/roses/blob/main/docs/dns-rosesdetroit.md">
+        <h3>DNS position</h3>
+        <p>Zone captured before anything else. Mail is Google Workspace on IONOS, so the registrar stays put.</p>
+        <span class="file">docs/dns-rosesdetroit.md</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="forest">
+  <div class="container">
+    <p class="label">Method</p>
+    <h2>Measured, not assumed.</h2>
+    <p>The live site sits behind Cloudflare&rsquo;s managed challenge, which returns 403 to plain HTTP clients. That challenge belongs to <strong>Toast</strong>, not the restaurant: the apex A record resolves to an IP registered to Toast, Inc. A normal browser clears the JS challenge with no interaction, so the audit was done in a rendered session. Nothing was bypassed.</p>
+    <div class="note">
+      <p style="margin:0">Labelled unverified where it could not be confirmed: the three fonts on the printed menu cannot be identified from a JPEG, the Detroit News review is paywalled so its sentences are not quoted, Core Web Vitals field data needs a Search Console the restaurant controls, and ownership of the Instagram photography is unknown.</p>
+    </div>
+    <svg class="rule" aria-hidden="true"><use href="#wave"/></svg>
+    <p class="small mute" style="max-width:70ch;margin:0">Precedent: <a href="https://github.com/ryankolean/umbo">ryankolean/umbo</a> and <a href="https://github.com/ryankolean/meantime">ryankolean/meantime</a>. Static multi-page HTML, no build step, GitHub Pages. The one deviation here is a Markdown-sourced menu, because this menu changes and the owner has to be able to change it.</p>
+  </div>
+</section>
+
+<footer class="container" style="padding:var(--s-8) var(--s-5)">
+  <p class="label">Roses &middot; research package v1.0</p>
+  <p class="small mute" style="max-width:62ch;margin:0">Prepared by Summit Software Solutions, 20 September 2026. Unsolicited research. No production code, no domain changes, and no contact with the restaurant. Roses, Rose&rsquo;s Fine Food, the bow mark and the menu artwork belong to the restaurant; they are reproduced here only as measurements and citations.</p>
+</footer>
+
+</body>
+</html>

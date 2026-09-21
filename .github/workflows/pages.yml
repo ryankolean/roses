@@ -1,0 +1,58 @@
+name: Build and deploy
+
+# The pitch is that the restaurant edits one text file and the site updates.
+# This is what makes that true: edit content/menu.md on github.com, commit, and
+# the menu pages plus the Menu JSON-LD are regenerated and the site republished.
+#
+# Deploying from Actions rather than from the branch matters. A commit pushed
+# by GITHUB_TOKEN does not trigger the branch-based Pages build, so a
+# commit-back approach would silently never publish.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Render content/menu.md into the pages
+        run: python3 tools/build_menu.py
+
+      - name: Fail if the committed pages were stale
+        run: |
+          if ! git diff --quiet; then
+            echo "::warning::content/menu.md was ahead of the committed HTML. Deploying the regenerated pages."
+            git --no-pager diff --stat
+          fi
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

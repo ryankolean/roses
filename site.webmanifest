@@ -1,0 +1,9 @@
+{
+  "name": "Roses",
+  "short_name": "Roses",
+  "start_url": "/roses/",
+  "display": "standalone",
+  "background_color": "#F0ECE6",
+  "theme_color": "#F0ECE6",
+  "icons": [{ "src": "assets/img/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }]
+}
