@@ -30,7 +30,7 @@ CARDS = [
     ("og-default", "room-counter.jpg", "Detroit", "Witamy."),
     ("og-menu", "table-nachos.jpg", "The menu", "Written after\nthe delivery."),
     ("og-story", "kitchen.jpg", "Story", "My third business\nin this space."),
-    ("og-press", "produce-peaches.jpg", "Press", "A good first year."),
+    ("og-press", "produce-peaches.jpg", "Press", "Other people’s\nwords."),
 ]
 
 
