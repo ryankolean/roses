@@ -3,6 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- GitHub Pages cannot send headers, so the policy ships as a meta tag. Concept-package page: its inline styles need 'unsafe-inline' for style-src. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self'; font-src 'self'; frame-src https://www.openstreetmap.org; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Roses - palette and type specimen</title>
 <meta name="description" content="Proposed colour palette, type scale and component system for Roses, Detroit. Research output, pending approval.">
 <meta name="robots" content="noindex, nofollow">

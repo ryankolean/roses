@@ -231,3 +231,17 @@ a:hover{color:var(--crimson-deep)}
   body{background:#fff;color:#000;font-size:11pt}
   .section{padding:var(--s-5) 0}
 }
+
+/* ---- utilities --------------------------------------------------------- */
+/* Stand-ins for the inline style attributes the content security policy
+   blocks. Last in the file so they win over component rules of equal weight. */
+.mt-3{margin-top:var(--s-3)}
+.mt-4{margin-top:var(--s-4)}
+.mt-5{margin-top:var(--s-5)}
+.mt-6{margin-top:var(--s-6)}
+.mt-8{margin-top:var(--s-8)}
+.mw-34ch{max-width:34ch}
+.mw-38ch{max-width:38ch}
+.mw-40ch{max-width:40ch}
+.mw-42ch{max-width:42ch}
+.mw-44rem{max-width:44rem}
