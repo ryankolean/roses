@@ -19,7 +19,7 @@ The brand itself is good. It is on the printed menu, and nobody has put it on th
 
 ## The site
 
-Five pages, static HTML, no framework, no build step for anything except the menu.
+Five pages, static HTML, no framework. Two small Python scripts run at deploy: the menu renderer and the stage step that decides what gets published.
 
 | Page | What |
 |---|---|
@@ -48,6 +48,27 @@ python3 tools/build_menu.py
 ```
 
 Deployment runs from GitHub Actions rather than from the branch on purpose. A commit pushed by `GITHUB_TOKEN` does not trigger the branch-based Pages build, so a commit-back approach would look fine and silently never publish.
+
+## Publishing and checks
+
+`tools/build_site.py` copies the public files into `_site/`, the only directory GitHub Pages serves, and writes `robots.txt` and `sitemap.xml`. Research, tooling and framework files in the repo root are never published. A new page or asset folder has to be added to its allowlist.
+
+The launch build is the same script in production mode: URLs moved to the real domain, `noindex` removed, the research and specimen pages left out.
+
+```bash
+SITE_MODE=production SITE_URL=https://rosesdetroit.com/ python3 tools/build_site.py
+```
+
+The site is adopted into the Summit website framework (SUMMIT-253, Level 1). `site/entity.json` and `site/brand.json` are the public facts the framework reads; decisions and the security report live in Summit's private intake repo. Every pull request runs:
+
+| Workflow | What it checks |
+|---|---|
+| `ci` | `summit verify-split` (public facts only), menu pages in sync with `content/menu.md`, the framework's preview checks on `_site`, and a launch dry run against the production checks |
+| `security` | The site-security gate: secrets, workflow and built-output scans. A Monday run monitors the live preview |
+
+GitHub Pages cannot send headers, so the content security policy and referrer policy ship as meta tags. HSTS and clickjacking protection need real headers and wait for the production host.
+
+**Photos.** `python3 tools/build_images.py` writes an AVIF for every width plus the smaller JPEGs. To add a photo, put the full-size JPEG in `assets/img/photos`, add it to the script's table, run it, and reference it with a `<picture>` like the others.
 
 ## Research
 
@@ -93,7 +114,8 @@ Marked on the pages themselves, and tracked in [`assets-needed.md`](design-catal
 ## Local preview
 
 ```bash
-python3 -m http.server 4323 --directory ~/roses
+python3 tools/build_site.py
+python3 -m http.server 4323 --directory _site
 ```
 
 Then `http://localhost:4323/`.
