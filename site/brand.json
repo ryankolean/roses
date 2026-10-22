@@ -1,0 +1,32 @@
+{
+  "name": "Roses",
+  "colors": {
+    "bg": "#F0ECE6",
+    "fg": "#9C1B22",
+    "muted": "#5C6B5C",
+    "primary": "#F97743",
+    "onPrimary": "#2D332D",
+    "accent": "#B3CDB4",
+    "paper": "#F0ECE6",
+    "sage": "#B3CDB4",
+    "crimson": "#9C1B22",
+    "ember": "#F97743",
+    "sagePale": "#D5DED0",
+    "forest": "#2D332D",
+    "crimsonDeep": "#701318",
+    "inkMute": "#5C6B5C"
+  },
+  "fonts": {
+    "display": {
+      "family": "EB Garamond",
+      "fallback": "Georgia, \"Times New Roman\", serif",
+      "weights": [400, 500, 600]
+    },
+    "body": {
+      "family": "EB Garamond",
+      "fallback": "Georgia, \"Times New Roman\", serif",
+      "weights": [400]
+    }
+  },
+  "radius": "2px"
+}
