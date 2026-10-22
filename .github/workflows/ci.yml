@@ -40,5 +40,15 @@ jobs:
         if: github.event_name == 'pull_request'
         run: python3 tools/build_menu.py && git diff --exit-code
 
+      - name: Stage _site
+        run: python3 tools/build_site.py
+
       - name: Preview checks
-        run: summit check gate . --mode preview --base /roses/
+        run: summit check gate _site --mode preview --base /roses/
+
+      # Proves the launch build would pass: noindex off, concept pages out,
+      # URLs on the real domain. Nothing from this build is published.
+      - name: Launch dry run
+        run: |
+          SITE_MODE=production SITE_URL=https://rosesdetroit.com/ python3 tools/build_site.py
+          summit check gate _site --mode production

@@ -42,10 +42,13 @@ jobs:
             git --no-pager diff --stat
           fi
 
+      - name: Stage the public files into _site
+        run: python3 tools/build_site.py
+
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: _site
 
   deploy:
     needs: build

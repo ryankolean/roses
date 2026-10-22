@@ -4,7 +4,7 @@
     {
       "name": "roses",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "4323"],
+      "runtimeArgs": ["-m", "http.server", "4323", "--directory", "_site"],
       "port": 4323
     }
   ]
