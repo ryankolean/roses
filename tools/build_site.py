@@ -31,7 +31,7 @@ PREVIEW_URL = "https://ryankolean.github.io/roses/"
 
 PAGES = ["index.html", "menu.html", "story.html", "visit.html", "press.html"]
 CONCEPT_PAGES = ["specimen.html", "research/index.html"]
-FILES = ["favicon.ico", "site.webmanifest"]
+FILES = ["favicon.ico", "site.webmanifest", "llms.txt"]
 DIRS = ["assets"]
 
 # Text files that carry absolute URLs and are rewritten in production.

@@ -1,0 +1,22 @@
+# Roses
+
+> Polish American cooking built on Michigan produce, in a 28-seat diner at 10551 E Jefferson Ave, Detroit, MI 48214. Dinner only: Sunday, Monday, Wednesday and Thursday 4pm to 10pm, Friday and Saturday 4pm to 11pm, closed Tuesday. Chef and owner Molly Mitchell.
+
+This is a concept site by Summit Software Solutions and is not affiliated with Roses. The restaurant's own site is https://rosesdetroit.com/.
+
+- Phone: +1-313-332-0404
+- Reservations: Resy, thirty days out, for the dining room and the bar. Walk-ins welcome.
+- Formerly Rose's Fine Food (2014 to 2023). Roses opened in the same room in September 2025.
+- Detroit Free Press 2026 Restaurant of the Year; The New York Times, 50 favorite restaurants in America; The Detroit News, three stars; Hour Detroit Best New Restaurants 2026.
+
+## Pages
+
+- [Menu](https://ryankolean.github.io/roses/menu.html): the full dinner menu as text, dated, with Menu structured data. It changes with what the farms bring.
+- [Visit](https://ryankolean.github.io/roses/visit.html): hours, address, map, reservations and what to expect.
+- [Story](https://ryankolean.github.io/roses/story.html): Rose's Fine Food from 2014 to 2023, the reopening in 2025, and the producers.
+- [Press](https://ryankolean.github.io/roses/press.html): the four awards and reviews, with links to the originals.
+
+## Elsewhere
+
+- [Reserve on Resy](https://resy.com/cities/detroit-mi/venues/roses)
+- [Instagram, @roses_detroit](https://www.instagram.com/roses_detroit/)
