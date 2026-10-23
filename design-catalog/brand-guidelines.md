@@ -226,12 +226,29 @@ Transparent field on `--paper`, `--border-hair` on three sides and `--border` on
 
 ### Motion
 
-- Transitions **150ms ease-out** on colour and border only.
-- One page-level moment: a **200ms ease-out crossfade between pages** (a cross-document view transition), with the header held still. CSS only, no animation library.
-- No scroll reveals, no parallax, no carousels, no smooth-scroll library.
-- `@media (prefers-reduced-motion: reduce)` sets every duration to `0.01ms` and turns the page crossfade off.
+**The site draws itself by hand, like the printed menu.** Motion is ink, paper and lamplight: strokes ink in, photographs come up like a lamp being turned on, the week's produce is laid on the table. It happens once, as each thing arrives, and then holds still. The menu text never moves; a reader and a menu should have nothing between them.
 
-The restraint is the point: a menu is the primary content and motion between a reader and a menu is friction.
+| Where | Moment | How |
+|---|---|---|
+| Homepage greeting | An ember wave flourish draws itself under "Witamy." on arrival | GSAP, stroke drawing, 1.4s |
+| Menu sections (home, menu) | **Signature:** each wheat sprig grows, stem first, then its leaves, stalk by stalk | GSAP + ScrollTrigger, once on entry |
+| Wave rules (menu, press) | Ruled left to right, two waves a beat apart, then the bar | GSAP + ScrollTrigger |
+| Awards strip | The crimson rules draw across; outlet and award settle up 8px | GSAP + ScrollTrigger |
+| Photographs | Lamp up: brightness 0.8 to 1 over 1.4s | GSAP + ScrollTrigger |
+| "This week" gallery | Each photo lands at a slight angle (2.4 degrees) and squares up | ScrollTrigger.batch |
+| Cards, pull quotes | Rise 16px and settle, 80ms apart | ScrollTrigger.batch |
+| Today's hours | An ember candle beside today's row when the room is open; it breathes twice, then holds | CSS, under 5 seconds |
+| Wordmark | The bow sways like a ribbon on hover or focus | CSS, 0.7s |
+| Nav links | A line is ruled under the link on hover; the current page keeps it | CSS, 200ms |
+| Buttons | Lift 1px on hover, settle when pressed; colour and border 150ms ease-out | CSS |
+| Between pages | 200ms ease-out crossfade, header held still | CSS cross-document view transition |
+
+**Rules**
+- Once and done. No loops, no scroll-scrubbed motion, no parallax, no pinning, no carousels, no smooth-scroll library.
+- Eases: `power2.inOut` for ink, `power3.out` for things settling. Entrances under 1.5 seconds.
+- Everything is in the HTML and visible without JavaScript. Hidden states are set by script, never by CSS.
+- Engine: GSAP core and ScrollTrigger only, self-hosted. No other motion library.
+- `prefers-reduced-motion: reduce` turns all of it off: no drawing, no settling, no crossfade, static candle. CSS durations drop to `0.01ms`.
 
 ## Voice and tone
 
