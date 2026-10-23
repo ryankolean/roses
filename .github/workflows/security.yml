@@ -22,7 +22,7 @@ jobs:
     timeout-minutes: 30
     env:
       # summit-claude-skills commit that last changed skills/site-security
-      SITE_SECURITY_REF: "5cb2ac33d712278b17e7e57407fd647802c3d059"
+      SITE_SECURITY_REF: "d81f852465fe1b6e6457bd17eb2a0f29ea3600cb"
       PROFILE: brochure
       BUILD_DIR: _site
       SITE_URL: "https://ryankolean.github.io/roses/"   # the weekly monitor run
