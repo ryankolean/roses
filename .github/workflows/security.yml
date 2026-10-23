@@ -1,0 +1,74 @@
+# Site security (site-security skill): gate on every PR and on main, monitor
+# weekly. Scanners come from Homebrew core so CI matches local runs.
+name: security
+on:
+  pull_request:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "17 9 * * 1"   # Mondays 09:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: security-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      # summit-claude-skills commit that last changed skills/site-security
+      SITE_SECURITY_REF: "5cb2ac33d712278b17e7e57407fd647802c3d059"
+      PROFILE: brochure
+      BUILD_DIR: _site
+      SITE_URL: "https://ryankolean.github.io/roses/"   # the weekly monitor run
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          fetch-depth: 0           # full history; PR gates scan only base..HEAD, audits scan everything
+          persist-credentials: false
+
+      - name: Install scanners
+        run: |
+          eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+          brew install osv-scanner zizmor semgrep trufflehog testssl
+          brew install betterleaks || brew install gitleaks
+          pipx install checkdmarc
+          echo "/home/linuxbrew/.linuxbrew/bin" >> "$GITHUB_PATH"
+
+      - name: Fetch site-security
+        run: |
+          git clone --quiet https://github.com/ryankolean/summit-claude-skills "$RUNNER_TEMP/scs"
+          git -C "$RUNNER_TEMP/scs" checkout --quiet "$SITE_SECURITY_REF"
+
+      - name: Build
+        run: python3 tools/build_site.py
+
+      - name: Scan
+        run: |
+          MODE=gate
+          if [ "$GITHUB_EVENT_NAME" = "schedule" ]; then MODE=monitor; fi
+          set -- --repo "$GITHUB_WORKSPACE" --mode "$MODE" --profile "$PROFILE" --out "$RUNNER_TEMP/sec"
+          if [ -d "$BUILD_DIR" ]; then set -- "$@" --built "$BUILD_DIR"; fi
+          if [ -n "$SITE_URL" ] && [ "$MODE" = "monitor" ]; then set -- "$@" --url "$SITE_URL"; fi
+          bash "$RUNNER_TEMP/scs/skills/site-security/scripts/scan.sh" "$@"
+
+      - name: Job summary
+        if: always()
+        run: cat "$RUNNER_TEMP/sec/summary.md" >> "$GITHUB_STEP_SUMMARY" || true
+
+      # Upload only the redacted report files: raw/ and logs/ hold full tool output and
+      # artifacts on public repos can be downloaded by any signed-in user.
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        if: always()
+        with:
+          name: security-report
+          path: |
+            ${{ runner.temp }}/sec/summary.md
+            ${{ runner.temp }}/sec/findings.json
+            ${{ runner.temp }}/sec/gate.json
+          retention-days: 30

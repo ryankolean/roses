@@ -1,0 +1,57 @@
+{
+  "name": "Roses",
+  "type": "Restaurant",
+  "description": "Polish American cooking built on Michigan produce, in a 28-seat diner on Detroit's east side.",
+  "url": "https://ryankolean.github.io/roses/",
+  "telephone": "+1-313-332-0404",
+  "locations": [
+    {
+      "address": {
+        "street": "10551 E Jefferson Ave",
+        "locality": "Detroit",
+        "region": "MI",
+        "postalCode": "48214",
+        "country": "US"
+      },
+      "geo": {
+        "lat": 42.3640561,
+        "lng": -82.9773619
+      },
+      "hours": [
+        {
+          "days": [
+            "Su",
+            "Mo",
+            "We",
+            "Th"
+          ],
+          "opens": "16:00",
+          "closes": "22:00"
+        },
+        {
+          "days": [
+            "Fr",
+            "Sa"
+          ],
+          "opens": "16:00",
+          "closes": "23:00"
+        }
+      ]
+    }
+  ],
+  "menus": [
+    {
+      "name": "Menu",
+      "url": "https://ryankolean.github.io/roses/menu.html",
+      "sections": []
+    }
+  ],
+  "faq": [],
+  "team": [],
+  "gallery": [],
+  "sameAs": [
+    "https://www.instagram.com/roses_detroit/",
+    "https://www.facebook.com/rosesfinefood/",
+    "https://resy.com/cities/detroit-mi/venues/roses"
+  ]
+}

@@ -226,8 +226,36 @@ a:hover{color:var(--crimson-deep)}
   *{transition-duration:0.01ms !important;animation-duration:0.01ms !important}
 }
 
+/* ---- page transition --------------------------------------------------- */
+/* The one motion moment (brand-guidelines.md, Motion): a short crossfade
+   between pages, like turning a page of the printed menu, with the header
+   held still. CSS only; browsers without cross-document view transitions
+   just navigate. The rule above cannot reach view-transition pseudo-elements,
+   so reduced motion turns the transition off here. */
+@view-transition{navigation:auto}
+.site-header{view-transition-name:site-header}
+::view-transition-old(root),::view-transition-new(root){animation-duration:200ms;animation-timing-function:ease-out}
+@media (prefers-reduced-motion:reduce){
+  @view-transition{navigation:none}
+}
+
+
 @media print{
   .concept-bar,.site-nav,.btn,.map-frame{display:none}
   body{background:#fff;color:#000;font-size:11pt}
   .section{padding:var(--s-5) 0}
 }
+
+/* ---- utilities --------------------------------------------------------- */
+/* Stand-ins for the inline style attributes the content security policy
+   blocks. Last in the file so they win over component rules of equal weight. */
+.mt-3{margin-top:var(--s-3)}
+.mt-4{margin-top:var(--s-4)}
+.mt-5{margin-top:var(--s-5)}
+.mt-6{margin-top:var(--s-6)}
+.mt-8{margin-top:var(--s-8)}
+.mw-34ch{max-width:34ch}
+.mw-38ch{max-width:38ch}
+.mw-40ch{max-width:40ch}
+.mw-42ch{max-width:42ch}
+.mw-44rem{max-width:44rem}

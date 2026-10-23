@@ -1,0 +1,34 @@
+{
+  "suppress": [
+    {
+      "check": "html.security.audit.missing-integrity.missing-integrity",
+      "location": "index.html:11",
+      "reason": "False positive: line 11 is <link rel=\"canonical\">, a URL for search engines, not a fetched subresource. Re-check if the head changes.",
+      "expires": "2027-04-30"
+    },
+    {
+      "check": "html.security.audit.missing-integrity.missing-integrity",
+      "location": "menu.html:11",
+      "reason": "False positive: line 11 is <link rel=\"canonical\">, a URL for search engines, not a fetched subresource. Re-check if the head changes.",
+      "expires": "2027-04-30"
+    },
+    {
+      "check": "html.security.audit.missing-integrity.missing-integrity",
+      "location": "story.html:11",
+      "reason": "False positive: line 11 is <link rel=\"canonical\">, a URL for search engines, not a fetched subresource. Re-check if the head changes.",
+      "expires": "2027-04-30"
+    },
+    {
+      "check": "html.security.audit.missing-integrity.missing-integrity",
+      "location": "visit.html:11",
+      "reason": "False positive: line 11 is <link rel=\"canonical\">, a URL for search engines, not a fetched subresource. Re-check if the head changes.",
+      "expires": "2027-04-30"
+    },
+    {
+      "check": "html.security.audit.missing-integrity.missing-integrity",
+      "location": "press.html:11",
+      "reason": "False positive: line 11 is <link rel=\"canonical\">, a URL for search engines, not a fetched subresource. Re-check if the head changes.",
+      "expires": "2027-04-30"
+    }
+  ]
+}

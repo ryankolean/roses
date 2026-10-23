@@ -3,13 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- GitHub Pages cannot send headers, so the policy ships as a meta tag. Concept-package page: its inline styles need 'unsafe-inline' for style-src. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self'; font-src 'self'; frame-src https://www.openstreetmap.org; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Roses - palette and type specimen</title>
 <meta name="description" content="Proposed colour palette, type scale and component system for Roses, Detroit. Research output, pending approval.">
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#F0ECE6">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/fonts.css">
 <style>
 :root{
   /* Measured from brand surfaces */
@@ -346,7 +347,7 @@ th{font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:12px}
       <p style="margin:0"><strong>Only the wavy rule is reproduced here.</strong> The five figurative motifs are still locked inside a flattened JPEG. They must be vectorised from the designer&rsquo;s source files, not traced. Tracing a papercut from a compressed image loses exactly the crispness that makes it a papercut.</p>
     </div>
     <div class="btnrow">
-      <a class="btn btn--primary" href="design-catalog/assets-needed.md">What we need from the owner</a>
+      <a class="btn btn--primary" href="https://github.com/ryankolean/roses/blob/main/design-catalog/assets-needed.md">What we need from the owner</a>
     </div>
   </div>
 </section>

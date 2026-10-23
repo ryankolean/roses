@@ -3,6 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- GitHub Pages cannot send headers, so the policy ships as a meta tag. Same policy on every site page; keep them identical. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; frame-src https://www.openstreetmap.org; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Menu - Roses</title>
 <meta name="description" content="The Roses dinner menu: Polish American snacks, salads, mains and desserts built on Michigan produce. Text, not a picture, and dated so you know how current it is.">
 <link rel="canonical" href="https://ryankolean.github.io/roses/menu.html">
@@ -20,9 +23,8 @@
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+<link rel="preload" href="assets/fonts/eb-garamond-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/fonts.css">
 <link rel="stylesheet" href="assets/css/style.css">
 <!-- MENU_JSONLD:START -->
 <script type="application/ld+json">
@@ -233,7 +235,7 @@
 <header class="site-header">
   <div class="container site-header__inner">
     <a class="wordmark" href="index.html" aria-label="Roses, home">
-      <img src="assets/img/mark.png" alt="" width="64" height="30">
+      <img src="assets/img/mark-160.png" alt="" width="64" height="30">
       <span class="wordmark__text">Roses</span>
     </a>
     <nav class="site-nav" aria-label="Main">
@@ -254,7 +256,7 @@
     <div class="container">
       <p class="label">Menu</p>
       <h1>Dinner.</h1>
-      <p class="lede" style="max-width:40ch">Written after the delivery, not before it. Everything here is text, so you can search it, read it on a phone, and copy the bit you want to send a friend.</p>
+      <p class="lede mw-40ch">Written after the delivery, not before it. Everything here is text, so you can search it, read it on a phone, and copy the bit you want to send a friend.</p>
     </div>
   </section>
 
@@ -359,10 +361,15 @@
         <p class="small muted mb-0">Placeholder in this concept: Roses has never published a drinks list on the web, so there was nothing accurate to reproduce. It would come from the restaurant.</p>
       </div>
       <figure class="photo">
-        <img src="assets/img/photos/table-nachos.jpg"
-             srcset="assets/img/photos/table-nachos@900.jpg 900w, assets/img/photos/table-nachos.jpg 1600w"
-             sizes="(max-width: 900px) 100vw, 480px"
-             alt="Polish Nachos on the table with a glass of white wine and water" width="1600" height="1060" loading="lazy">
+        <picture>
+          <source type="image/avif"
+                  srcset="assets/img/photos/table-nachos@450.avif 450w, assets/img/photos/table-nachos@900.avif 900w, assets/img/photos/table-nachos.avif 1600w"
+                  sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 900px) calc(100vw - 48px), 428px">
+          <img src="assets/img/photos/table-nachos.jpg"
+               srcset="assets/img/photos/table-nachos@450.jpg 450w, assets/img/photos/table-nachos@900.jpg 900w, assets/img/photos/table-nachos.jpg 1600w"
+               sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 900px) calc(100vw - 48px), 428px"
+               alt="Polish Nachos on the table with a glass of white wine and water" width="1600" height="1060" loading="lazy">
+        </picture>
       </figure>
     </div>
   </section>

@@ -3,6 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- GitHub Pages cannot send headers, so the policy ships as a meta tag. Same policy on every site page; keep them identical. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; frame-src https://www.openstreetmap.org; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Roses - Polish American dinner on Detroit's east side</title>
 <meta name="description" content="Roses is a 28-seat diner at 10551 E. Jefferson in Detroit. Polish American cooking built on Michigan produce. Detroit Free Press 2026 Restaurant of the Year. Dinner Wednesday through Monday, closed Tuesday.">
 <link rel="canonical" href="https://ryankolean.github.io/roses/">
@@ -20,9 +23,8 @@
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+<link rel="preload" href="assets/fonts/eb-garamond-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/fonts.css">
 <link rel="stylesheet" href="assets/css/style.css">
 <script type="application/ld+json">
 {
@@ -78,7 +80,7 @@
 <header class="site-header">
   <div class="container site-header__inner">
     <a class="wordmark" href="index.html" aria-label="Roses, home">
-      <img src="assets/img/mark.png" alt="" width="64" height="30">
+      <img src="assets/img/mark-160.png" alt="" width="64" height="30">
       <span class="wordmark__text">Roses</span>
     </a>
     <nav class="site-nav" aria-label="Main">
@@ -97,17 +99,22 @@
 
   <section class="section">
     <div class="container">
-      <p class="display">Witamy.</p>
-      <p class="lede" style="max-width:34ch">Polish American cooking, built on whatever Michigan farms have this week.</p>
+      <h1 class="display">Witamy.</h1>
+      <p class="lede mw-34ch">Polish American cooking, built on whatever Michigan farms have this week.</p>
       <div class="btnrow">
         <a class="btn btn--primary" href="https://resy.com/cities/detroit-mi/venues/roses">Reserve on Resy</a>
         <a class="btn btn--secondary" href="menu.html">See the menu</a>
       </div>
-      <figure class="photo hero__img" style="margin-top:var(--s-8)">
-        <img src="assets/img/photos/room-counter.jpg"
-             srcset="assets/img/photos/room-counter@900.jpg 900w, assets/img/photos/room-counter.jpg 1600w"
-             sizes="(max-width: 1120px) 100vw, 1120px"
-             alt="The open counter at Roses: pressed tin, a shelf of preserve jars, a round mirror, and two cooks working the line" width="1600" height="1060" fetchpriority="high">
+      <figure class="photo hero__img mt-8">
+        <picture>
+          <source type="image/avif"
+                  srcset="assets/img/photos/room-counter@900.avif 900w, assets/img/photos/room-counter.avif 1600w"
+                  sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 1120px) calc(100vw - 48px), 1072px">
+          <img src="assets/img/photos/room-counter.jpg"
+               srcset="assets/img/photos/room-counter@900.jpg 900w, assets/img/photos/room-counter.jpg 1600w"
+               sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 1120px) calc(100vw - 48px), 1072px"
+               alt="The open counter at Roses: pressed tin, a shelf of preserve jars, a round mirror, and two cooks working the line" width="1600" height="1060" fetchpriority="high">
+        </picture>
       </figure>
     </div>
   </section>
@@ -121,7 +128,7 @@
         <li><span class="outlet">The Detroit News</span><span class="what">Three stars</span></li>
         <li><span class="outlet">Hour Detroit</span><span class="what">Best New Restaurants 2026</span></li>
       </ul>
-      <p class="mb-0" style="margin-top:var(--s-6)"><a href="press.html">What they wrote</a></p>
+      <p class="mb-0 mt-6"><a href="press.html">What they wrote</a></p>
     </div>
   </section>
 
@@ -189,10 +196,15 @@
         <p class="mb-0"><a href="story.html">How it got here</a></p>
       </div>
       <figure class="photo">
-        <img src="assets/img/photos/counter-candles.jpg"
-             srcset="assets/img/photos/counter-candles@900.jpg 900w, assets/img/photos/counter-candles.jpg 1600w"
-             sizes="(max-width: 900px) 100vw, 480px"
-             alt="Someone lighting tall candles at the counter, beside cut flowers and shelves of preserves" width="1600" height="1066" loading="lazy">
+        <picture>
+          <source type="image/avif"
+                  srcset="assets/img/photos/counter-candles@450.avif 450w, assets/img/photos/counter-candles@900.avif 900w, assets/img/photos/counter-candles.avif 1600w"
+                  sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 900px) calc(100vw - 48px), 428px">
+          <img src="assets/img/photos/counter-candles.jpg"
+               srcset="assets/img/photos/counter-candles@450.jpg 450w, assets/img/photos/counter-candles@900.jpg 900w, assets/img/photos/counter-candles.jpg 1600w"
+               sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 900px) calc(100vw - 48px), 428px"
+               alt="Someone lighting tall candles at the counter, beside cut flowers and shelves of preserves" width="1600" height="1066" loading="lazy">
+        </picture>
       </figure>
     </div>
   </section>
@@ -202,11 +214,43 @@
       <p class="label">This week</p>
       <h2>What the farms brought.</h2>
       <p>Lillian's Loaves, Amalgam Farms, Seedling Fruit, Sown In Peace, Order Up Organics, Ma Coen's, Marrow. The menu is written after the delivery, not before it.</p>
-      <div class="gallery" style="margin-top:var(--s-6)">
-        <img src="assets/img/photos/produce-peaches.jpg" alt="Two shelves of Michigan peaches lined up in the walk-in" width="1200" height="1600" loading="lazy">
-        <img src="assets/img/photos/produce-cabbage.jpg" alt="Cabbages and fresh garlic on a steel shelf against a green wall" width="1200" height="1600" loading="lazy">
-        <img src="assets/img/photos/produce-cucumbers.jpg" alt="A tub of pickling cucumbers on a wooden board" width="1200" height="1600" loading="lazy">
-        <img src="assets/img/photos/produce-cabbages.jpg" alt="A sink full of cabbages waiting to be trimmed" width="1200" height="1600" loading="lazy">
+      <div class="gallery mt-6">
+        <picture>
+          <source type="image/avif"
+                  srcset="assets/img/photos/produce-peaches@600.avif 600w, assets/img/photos/produce-peaches@900.avif 900w, assets/img/photos/produce-peaches.avif 1200w"
+                  sizes="(max-width: 487px) calc(100vw - 32px), (max-width: 739px) calc(50vw - 24px), 256px">
+          <img src="assets/img/photos/produce-peaches.jpg"
+               srcset="assets/img/photos/produce-peaches@600.jpg 600w, assets/img/photos/produce-peaches@900.jpg 900w, assets/img/photos/produce-peaches.jpg 1200w"
+               sizes="(max-width: 487px) calc(100vw - 32px), (max-width: 739px) calc(50vw - 24px), 256px"
+               alt="Two shelves of Michigan peaches lined up in the walk-in" width="1200" height="1600" loading="lazy">
+        </picture>
+        <picture>
+          <source type="image/avif"
+                  srcset="assets/img/photos/produce-cabbage@600.avif 600w, assets/img/photos/produce-cabbage@900.avif 900w, assets/img/photos/produce-cabbage.avif 1200w"
+                  sizes="(max-width: 487px) calc(100vw - 32px), (max-width: 739px) calc(50vw - 24px), 256px">
+          <img src="assets/img/photos/produce-cabbage.jpg"
+               srcset="assets/img/photos/produce-cabbage@600.jpg 600w, assets/img/photos/produce-cabbage@900.jpg 900w, assets/img/photos/produce-cabbage.jpg 1200w"
+               sizes="(max-width: 487px) calc(100vw - 32px), (max-width: 739px) calc(50vw - 24px), 256px"
+               alt="Cabbages and fresh garlic on a steel shelf against a green wall" width="1200" height="1600" loading="lazy">
+        </picture>
+        <picture>
+          <source type="image/avif"
+                  srcset="assets/img/photos/produce-cucumbers@600.avif 600w, assets/img/photos/produce-cucumbers@900.avif 900w, assets/img/photos/produce-cucumbers.avif 1200w"
+                  sizes="(max-width: 487px) calc(100vw - 32px), (max-width: 739px) calc(50vw - 24px), 256px">
+          <img src="assets/img/photos/produce-cucumbers.jpg"
+               srcset="assets/img/photos/produce-cucumbers@600.jpg 600w, assets/img/photos/produce-cucumbers@900.jpg 900w, assets/img/photos/produce-cucumbers.jpg 1200w"
+               sizes="(max-width: 487px) calc(100vw - 32px), (max-width: 739px) calc(50vw - 24px), 256px"
+               alt="A tub of pickling cucumbers on a wooden board" width="1200" height="1600" loading="lazy">
+        </picture>
+        <picture>
+          <source type="image/avif"
+                  srcset="assets/img/photos/produce-cabbages@600.avif 600w, assets/img/photos/produce-cabbages@900.avif 900w, assets/img/photos/produce-cabbages.avif 1200w"
+                  sizes="(max-width: 487px) calc(100vw - 32px), (max-width: 739px) calc(50vw - 24px), 256px">
+          <img src="assets/img/photos/produce-cabbages.jpg"
+               srcset="assets/img/photos/produce-cabbages@600.jpg 600w, assets/img/photos/produce-cabbages@900.jpg 900w, assets/img/photos/produce-cabbages.jpg 1200w"
+               sizes="(max-width: 487px) calc(100vw - 32px), (max-width: 739px) calc(50vw - 24px), 256px"
+               alt="A sink full of cabbages waiting to be trimmed" width="1200" height="1600" loading="lazy">
+        </picture>
       </div>
     </div>
   </section>
@@ -228,7 +272,7 @@
       <div>
         <p class="label">Where</p>
         <p class="lede mb-0">10551 E Jefferson Ave<br>Detroit, MI 48214</p>
-        <p style="margin-top:var(--s-4)">East side, near the Islandview and West Village blocks. Reservations open thirty days out on Resy, for the dining room and the bar. Walk-ins welcome.</p>
+        <p class="mt-4">East side, near the Islandview and West Village blocks. Reservations open thirty days out on Resy, for the dining room and the bar. Walk-ins welcome.</p>
         <div class="btnrow">
           <a class="btn btn--primary" href="https://resy.com/cities/detroit-mi/venues/roses">Reserve on Resy</a>
           <a class="btn btn--secondary" href="visit.html">Getting here</a>

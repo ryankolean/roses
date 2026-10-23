@@ -227,8 +227,9 @@ Transparent field on `--paper`, `--border-hair` on three sides and `--border` on
 ### Motion
 
 - Transitions **150ms ease-out** on colour and border only.
-- No scroll reveals, no parallax, no carousels.
-- `@media (prefers-reduced-motion: reduce)` sets every duration to `0.01ms`.
+- One page-level moment: a **200ms ease-out crossfade between pages** (a cross-document view transition), with the header held still. CSS only, no animation library.
+- No scroll reveals, no parallax, no carousels, no smooth-scroll library.
+- `@media (prefers-reduced-motion: reduce)` sets every duration to `0.01ms` and turns the page crossfade off.
 
 The restraint is the point: a menu is the primary content and motion between a reader and a menu is friction.
 
