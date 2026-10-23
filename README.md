@@ -97,7 +97,7 @@ Four measured anchors, from [`brand-guidelines.md`](design-catalog/brand-guideli
 |---|---|---|
 | `--sage` | `#B3CDB4` | Printed menu ground, dominant of ~128k sampled pixels |
 | `--crimson` | `#9C1B22` | Printed menu ink and illustration |
-| `--ember` | `#F97743` | `redbow.png`, the logo bow |
+| `--ember` | `#F97743` | `redbow.png`, the live site's logo bow |
 | `--paper` | `#F0ECE6` | The live site's page background |
 
 Type is EB Garamond and Montserrat, both visual matches to the printed menu's faces. The menu's ornate display face could not be identified from a JPEG and is deliberately absent rather than half-matched.
@@ -112,7 +112,7 @@ Marked on the pages themselves, and tracked in [`assets-needed.md`](design-catal
 - **The drinks list** is transcribed from a low-resolution video of the October printed menu. One price is unreadable and three are low-confidence; see [`assets-needed.md`](design-catalog/assets-needed.md), item 5.
 - **The dietary key** covers `(v)`, `(gf)` and the trailing-o options only; the October menu adds `(vg)` without a key.
 - **Parking, transit and accessibility** specifics are unconfirmed, so the pages say so instead of guessing.
-- **The bow mark** is their 2.1MB PNG. The October menu replaces it in print with a roundel and a "Roses" wordmark; the site switches when Signal-Return supplies them as vector.
+- **The logo** is the October menu's roundel and "Roses" wordmark in crimson, traced from a photo of the cover. Signal-Return's vector replaces `assets/img/roundel.svg` and `assets/img/wordmark.svg` when it arrives.
 - **The story page** quotes Molly Mitchell's own Instagram post and would need her permission.
 
 ## Local preview

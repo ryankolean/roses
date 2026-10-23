@@ -14,7 +14,7 @@ The entire visual identity currently exists as a **2.1MB PNG of a bow** and a **
 
 - `redbow.png` as **vector** (AI, EPS, SVG or PDF)
 - The eight *wycinanki* illustrations from the menu as vector: the rose rosette, the wheat sheaves, the heron, the woman with the bread basket, the footed fruit bowl, the wavy rule, and from October the roundel and the rose cluster beside "Drinks"
-- The October **cover lockup**, the roundel over the "Roses" wordmark, as vector. It is the first real wordmark the brand has
+- The October **cover lockup**, the roundel over the "Roses" wordmark, as vector. It is the first real wordmark the brand has. The concept site carries an interim trace of the cover photo until then
 - The menu's **layered source file**, which would also settle the font question below
 - **Who designed it?** Answered in October: the restaurant credits [Signal-Return](https://www.instagram.com/signalreturn/), the Eastern Market letterpress studio. Ask them for all of the above, and for anything new.
 
@@ -96,7 +96,7 @@ Five renderings are live across surfaces the restaurant owns. **Pick one.** Our 
 
 Is it the permanent mark or a placeholder? The filename says "red" and the artwork is orange. Would they like a proper wordmark pairing the bow with "Roses"?
 
-The October menu half-answers this: it carries the roundel and a "Roses" wordmark, and no bow. **Is the roundel lockup the mark now?** If so, the site switches when Signal-Return supplies the vector (item 1).
+The October menu half-answers this: it carries the roundel and a "Roses" wordmark, and no bow. **Is the roundel lockup the mark now?** The concept site already shows it in crimson, traced from the cover photo; Signal-Return's vector replaces the trace (item 1).
 
 ### 13. The menu update path
 

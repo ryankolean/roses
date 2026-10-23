@@ -26,8 +26,9 @@
 @media (prefers-reduced-motion:no-preference){
   .hours li.is-today:not(:has(.closed))::before{animation:candle 2.2s ease-in-out 2}
 
-  /* The bow sways like a ribbon when the wordmark is pointed at or focused. */
-  .wordmark:hover img,.wordmark:focus-visible img{animation:sway .7s ease-out}
+  /* The seal presses in like a letterpress impression when the wordmark is
+     pointed at or focused. */
+  .wordmark:hover .wordmark__mark,.wordmark:focus-visible .wordmark__mark{animation:press .35s ease-out}
 
   /* Nav links rule a line under themselves; the current page keeps it. */
   .site-nav a:not(.btn){background:linear-gradient(currentColor,currentColor) 0 100%/0 2px no-repeat;
@@ -46,12 +47,10 @@
   0%,100%{box-shadow:0 0 0 0 color-mix(in srgb,var(--ember) 0%,transparent)}
   50%{box-shadow:0 0 0 5px color-mix(in srgb,var(--ember) 30%,transparent)}
 }
-@keyframes sway{
-  0%{transform:rotate(0)}
-  30%{transform:rotate(-7deg)}
-  60%{transform:rotate(5deg)}
-  80%{transform:rotate(-2deg)}
-  100%{transform:rotate(0)}
+@keyframes press{
+  0%{transform:scale(1)}
+  40%{transform:scale(.92)}
+  100%{transform:scale(1)}
 }
 
 @media print{

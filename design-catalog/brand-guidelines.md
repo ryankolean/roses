@@ -52,7 +52,7 @@ A fourth is measured from the live site: **Bone `#F0ECE6`**, the page background
 }
 ```
 
-**Roles.** `--paper` is the default page. `--sage` and `--sage-pale` alternate sections. `--forest` is the one dark section per page plus the footer. `--crimson` is body text, headings and links. `--ember` is reserved: primary CTA fill, the logo, and the active state. Using ember for anything else dilutes the only mark the brand has.
+**Roles.** `--paper` is the default page. `--sage` and `--sage-pale` alternate sections. `--forest` is the one dark section per page plus the footer. `--crimson` is body text, headings and links. `--ember` is reserved: primary CTA fill and the active state. It was the logo colour until the October lockup moved the mark to crimson; keeping ember to two jobs keeps the CTA unmistakable.
 
 ### Re-measured against the October stock
 
@@ -179,12 +179,14 @@ Two more appear in October:
 - **The wavy rule is the section divider** across the whole site. It is the cheapest, most repeatable piece of the system.
 - **Wheat is the list separator** between menu sections.
 - **Figures are punctuation, not illustration.** One per section, set small in a margin, the way the menu uses them. Never a hero image, never a background pattern.
-- Vectorise all eight from the source artwork. Do not trace from the JPEG or the October photographs; get the originals from Signal-Return.
+- Vectorise all eight from the source artwork. Do not trace from the JPEG or the October photographs; get the originals from Signal-Return. The logo is the one deliberate exception, traced as an interim so the site carries the current mark; see Logo.
 - **Do not add new motifs.** If something new is needed, commission it from Signal-Return, the way the roundel arrived.
 
 **Why this and not flowers:** flowers are the room, and the room should be photographed, not illustrated. The papercut world is the menu, it is specifically Polish, it is unique in Detroit dining, and it scales to a divider at 24px and a page ornament at 400px without changing character.
 
 ## Logo
+
+**Superseded on the site by the October lockup, below.** The v1.0 record of the bow stays for reference.
 
 - **The mark is the bow**, `redbow.png`, ember `#F97743`, native 2236x1073.
 - **There is no wordmark.** One does not exist in any surface captured. The site sets the name in Inconsolata, which is not a wordmark, it is a fallback.
@@ -199,9 +201,10 @@ Two more appear in October:
 
 The October menu carries **no bow**. Its cover is a lockup: the roundel (motif 7) centred above "Roses" set in the "Witamy!" script, both crimson on the menu stock. The roundel is about three quarters of the wordmark's width. The same wordmark sits in the wheat band at the foot of every page, and the roundel closes the drinks page. v1.0 said no wordmark existed; this is one, made by the studio that makes the menu.
 
-- **The site keeps the bow until the lockup arrives as vector.** Then the roundel and wordmark replace it in the header, the favicon and the social cards, and the bow question above closes itself.
-- **Do not crop either from a photograph.** The cover shot is in direct sun at an angle; a traced roundel would lose the stippling that makes it read as print.
-- **Colour:** crimson on `--paper`, `--sage` or `--sage-pale`; paper on `--forest`. Ember stays reserved for the CTA and active states once the bow retires.
+- **The site uses the lockup.** The header sets `assets/img/roundel.svg` beside `assets/img/wordmark.svg`; the favicon and touch icon are the roundel alone. Side by side, not stacked, because a stacked lockup at header height shrinks the wordmark past reading. The stacked cover arrangement is for print and large placements.
+- **It is an interim trace.** Both files were traced with potrace from the 4096px cover photo, thresholding the green channel at 58%: green separates crimson ink from the menu stock and holds up under the sun gradient that defeats a hue threshold. Some fine stippling and the dashed inner ring are lost. Replace both files with Signal-Return's vector when it arrives; nothing else changes.
+- **Colour: crimson `#9C1B22`**, the menu's ink as measured from its digital file. The October photos read the ink anywhere from `#B2524C` in sun to much darker in shade, which is the light, not the ink. Crimson on `--paper`, `--sage` or `--sage-pale`; paper on `--forest`. Never ember.
+- **Sizes:** roundel 44px and wordmark 30px tall in the header, 36px and 24px under 640px. The roundel still reads as a red seal at a 16px favicon; below 32px the flower is a suggestion.
 
 ## Style guide
 
@@ -277,7 +280,7 @@ Transparent field on `--paper`, `--border-hair` on three sides and `--border` on
 | "This week" gallery | Each photo lands at a slight angle (2.4 degrees) and squares up | ScrollTrigger.batch |
 | Cards, pull quotes | Rise 16px and settle, 80ms apart | ScrollTrigger.batch |
 | Today's hours | An ember candle beside today's row when the room is open; it breathes twice, then holds | CSS, under 5 seconds |
-| Wordmark | The bow sways like a ribbon on hover or focus | CSS, 0.7s |
+| Wordmark | The seal presses in like a letterpress impression on hover or focus | CSS, 0.35s |
 | Nav links | A line is ruled under the link on hover; the current page keeps it | CSS, 200ms |
 | Buttons | Lift 1px on hover, settle when pressed; colour and border 150ms ease-out | CSS |
 | Between pages | 200ms ease-out crossfade, header held still | CSS cross-document view transition |
@@ -344,10 +347,11 @@ Derived from captions in [`instagram-brand-intel.md`](instagram-brand-intel.md).
 | *Wycinanki* motif system | Observed, six distinct figures on the printed menu; two more on the October menu |
 | Heron, not peacock | Observed, the long bill in the October launch photos |
 | Signal-Return as the source | The restaurant's own caption on the October launch post credits @signalreturn |
-| Roundel and wordmark | Observed, October cover and page footers. Not vectorised: no source file yet |
+| Roundel and wordmark | Observed, October cover and page footers. On the site as an interim potrace trace of the cover photo |
+| Logo in crimson | The October menu prints the lockup in the menu ink |
 | No colour change in October | Re-measured from seven blank-paper samples; even light reads `#B4CAB6` against `#B3CDB4` |
 | Polish section labels | Observed, October menu |
-| Bow as mark | Measured, `redbow.png` used as logo and favicon |
+| Bow as mark (v1.0, retired October) | Measured, `redbow.png` used as logo and favicon on the live Toast site |
 | Pill button radius | Measured from the live site CTA |
 | Voice rules | Derived from captured captions, quoted in the IG intel |
 | No shadows | Design decision from the single-ink printed-matter conceit |
