@@ -1,6 +1,6 @@
 # Assets and Answers Needed from Roses
 
-**Version:** 1.0, 2026-09-20.
+**Version:** 1.1, 2026-10-23. Updated from the October printed menu: items 1, 2, 5 and 12 changed, 19 and 20 added.
 
 One consolidated list, so nothing gets discovered piecemeal mid-build. Items are ordered by what blocks the most work.
 
@@ -13,9 +13,10 @@ One consolidated list, so nothing gets discovered piecemeal mid-build. Items are
 The entire visual identity currently exists as a **2.1MB PNG of a bow** and a **flattened JPEG of a printed menu**. Neither is usable at build quality.
 
 - `redbow.png` as **vector** (AI, EPS, SVG or PDF)
-- The six *wycinanki* illustrations from the menu as vector: the rose rosette, the wheat sheaves, the peacock, the woman with the bread basket, the footed fruit bowl, the wavy rule
+- The eight *wycinanki* illustrations from the menu as vector: the rose rosette, the wheat sheaves, the heron, the woman with the bread basket, the footed fruit bowl, the wavy rule, and from October the roundel and the rose cluster beside "Drinks"
+- The October **cover lockup**, the roundel over the "Roses" wordmark, as vector. It is the first real wordmark the brand has
 - The menu's **layered source file**, which would also settle the font question below
-- **Who designed it?** They are the right person to ask for all of the above, and to draw anything new.
+- **Who designed it?** Answered in October: the restaurant credits [Signal-Return](https://www.instagram.com/signalreturn/), the Eastern Market letterpress studio. Ask them for all of the above, and for anything new.
 
 ### 2. Fonts
 
@@ -24,7 +25,7 @@ Three faces are used on the printed menu and none can be identified from a JPEG.
 | Where | What we need |
 |---|---|
 | The ornate "Menu" display face | Name and licence. Currently **unidentified** |
-| The "Witamy!" script | Name and licence. Currently **unidentified** |
+| The "Witamy!" script | Name and licence. Currently **unidentified**. Since October it also sets the "Roses" wordmark |
 | Dish names and section heads | Confirm or correct our visual match, **Montserrat** |
 | Dish descriptions | Confirm or correct our visual match, **EB Garamond** |
 
@@ -56,7 +57,14 @@ Without it we write something plainer and truthful. We will not publish the inve
 
 ### 5. The drinks list
 
-Not published on the website, the Linktree, or Instagram. Press mentions pickle martinis and a tomato horseradish martini. We need cocktails, beer and wine with prices, or a decision to leave drinks off the site.
+Published on the October printed menu, and now on the concept site from `content/drinks.md`. It was transcribed from a 7-second, 720px video in the launch post, so four reads need checking against the printed menu:
+
+- **Pickle Martini:** price unreadable, left blank on the site
+- **Cherry Slipper:** read as $20
+- **Fruitbelt Apple Marigold Tonic** and **Unified Ferments:** read as $16/64
+- **Balea Txakoli:** bottle price read as $52, partly out of frame
+
+Spellings were normalised where the brand already spells them: Żubrówka with its diacritics, Montepulciano d'Abruzzo.
 
 ### 6. Accessibility facts
 
@@ -88,6 +96,8 @@ Five renderings are live across surfaces the restaurant owns. **Pick one.** Our 
 
 Is it the permanent mark or a placeholder? The filename says "red" and the artwork is orange. Would they like a proper wordmark pairing the bow with "Roses"?
 
+The October menu half-answers this: it carries the roundel and a "Roses" wordmark, and no bow. **Is the roundel lockup the mark now?** If so, the site switches when Signal-Return supplies the vector (item 1).
+
 ### 13. The menu update path
 
 Who edits the menu, and are they willing to use a GitHub page to do it? If not, we pick a different mechanism. **This decides the stack**, so it needs answering before the build, not after.
@@ -113,6 +123,16 @@ Who has the DNS login? Two records change at cutover and nothing else. **Do not 
 ### 18. The domain itself
 
 Confirm `rosesdetroit.com` is registered to the restaurant and not to a former agency or to Toast.
+
+## Added from the October menu
+
+### 19. The dietary key
+
+The October menu adds `(vo)`, `(gfo)` and `(vg)` to `(v)` and `(gf)`, and prints no key. A trailing o reads as "option" (`(gfo)` sits on the salad with croutons), and that is all the site says. `(vg)` sits on the Polish Panade, which has ricotta and parmesan, so it cannot mean vegan. **Ask what each tag means**, then publish the full key.
+
+### 20. The featured artist
+
+Each edition gives a page to a Detroit artist; October's is bree gant. The site credits the artist by name only. **Ask** whether the artist page should be on the web, and get the artist's permission for the bio and the work.
 
 ## Things they should fix themselves, whatever happens here
 

@@ -1,6 +1,6 @@
 # Brand Guidelines: Roses
 
-**Version:** 1.0, 2026-09-20. Research output, pending owner approval.
+**Version:** 1.1, 2026-10-23. Adds what the October printed menu shows (launch post on @roses_detroit, 2026-10-23). Research output, pending owner approval.
 
 Every value here is either **measured** from a brand surface Roses already owns, or **derived** from a measured value by a stated operation. Nothing is invented. Where a source asset could not be identified, it says so.
 
@@ -17,6 +17,20 @@ Three measured anchors carry everything:
 | **Ember** | `#F97743` | `redbow.png`, the logo mark | Dominant opaque colour across 41,562 sampled pixels |
 
 A fourth is measured from the live site: **Bone `#F0ECE6`**, the page background the restaurant chose in Toast's theme editor.
+
+**Who makes the menu.** The restaurant credits [Signal-Return](https://www.instagram.com/signalreturn/) for it, the nonprofit letterpress studio in Eastern Market. The October edition photographs as a pressed impression in one ink on uncoated stock, which is what letterpress looks like. Signal-Return is where the originals live: the plates or files for every motif, the display faces, and anything new.
+
+### What the October menu changed
+
+| Element | August 2026 (`Roses_menu_web_Aug_26.jpg`) | October 2026 (printed booklet) |
+|---|---|---|
+| Format | One page, food only | Cover, food spread, drinks spread, artist page |
+| Section heads | English: `SNACKS, SALADS & SIDES`, `MAINS`, `DESSERTS` | Polish: `PRZYSTAWKI`, `DANIE GŁÓWNE`, `DESER`; drinks `Wino`, `Koktajle`, `Piwo`, `Bezalkoholowy` |
+| Mark | None on the menu | A roundel seal and a "Roses" wordmark (see Logo) |
+| Drinks | Not published anywhere | Published: nine wines, seven cocktails, three beers, five without alcohol |
+| Dietary tags | `(v)`, `(gf)` | Adds `(vo)`, `(gfo)`, `(vg)`; no key printed |
+| Featured artist | None | A Detroit artist per edition, with bio and work in the menu ink. October: bree gant |
+| Ground and ink | Sage and crimson | Unchanged (re-measured below) |
 
 ## Color
 
@@ -39,6 +53,10 @@ A fourth is measured from the live site: **Bone `#F0ECE6`**, the page background
 ```
 
 **Roles.** `--paper` is the default page. `--sage` and `--sage-pale` alternate sections. `--forest` is the one dark section per page plus the footer. `--crimson` is body text, headings and links. `--ember` is reserved: primary CTA fill, the logo, and the active state. Using ember for anything else dilutes the only mark the brand has.
+
+### Re-measured against the October stock
+
+The October booklet has no digital file yet, only the launch post's photographs. Mean colour of blank paper across seven samples ranges from `#8BAC97` (video frame, deep shade) to `#C2D8B8` (video frame, bright); the cover in direct sun reads `#B8DDBB`. The spread's right page in even light reads `#B4CAB6`, within three units per channel of `--sage`. The stock is the same colour; the mint cast in the post is sunlight. **No token changes.** A daylight photograph cannot move a measured anchor; a digital file from Signal-Return can.
 
 ### Why these and not the site's current values
 
@@ -88,6 +106,9 @@ The printed menu sets three distinct voices, and identifying the exact licensed 
 | **"Witamy!"** | Bouncy monoline script, widely letter-spaced, letters separated rather than joined | **Unidentified** |
 | **Section heads and dish names** (`MAINS`, `Pierogi Ruskie`) | Geometric sans, heavy. Double-storey `a`, pointed `A` apex, straight-legged `R`, single-storey `g` with an open tail | **Visual match: Montserrat Bold / ExtraBold.** Not confirmed |
 | **Dish descriptions** | Renaissance oldstyle serif. High stroke contrast, sharp calligraphic terminals, **oldstyle figures** (`$24`, `$16` sit at x-height), a distinctive angled hyphen | **Visual match: EB Garamond.** Not confirmed |
+| **"Roses" wordmark** (October cover and page footers) | The "Witamy!" script: monoline, swash `R`, letters spaced and unjoined | **Unidentified.** Same face as "Witamy!", which makes it the brand's most important font |
+| **"Drinks"** (October drinks spread) | The ornate "Menu" display face | **Unidentified** |
+| **Drinks subheads** (`Wino`, `Koktajle`) | The dish-name sans in title case, centred, with a hairline rule underneath | Print only. The site keeps one section-label style |
 
 ### The system to build with
 
@@ -130,6 +151,7 @@ Mobile (<640px): display 40px · h1 34px · h2 28px · h3 22px · lede 19px · b
 - **Oldstyle figures on the menu, lining figures for prices in running text.** EB Garamond defaults to oldstyle, which matches the printed menu exactly. Keep them on the menu page.
 - **Never set body copy in Montserrat.** It is a display weight in this system.
 - Uppercase is for section labels only. Never uppercase a heading or a dish name.
+- **Section labels are Polish, as printed.** Przystawki, Danie główne, Deser; Wino, Koktajle, Piwo, Bezalkoholowy. The page heading carries the English ("Dinner.", "Drinks"), the labels do not.
 
 ## Motif system
 
@@ -139,10 +161,17 @@ The equivalent of Umbo's scallop shell, and it already exists.
 
 1. A rose rendered as a symmetrical papercut rosette with leaves
 2. Wheat sheaves, used as a repeating horizontal separator
-3. A peacock among stylised foliage
+3. A heron among stylised foliage, set as a square block beside a section head like an illuminated initial (v1.0 read it as a peacock; the long bill in the October print settles it)
 4. A woman in a headscarf carrying a basket of bread
 5. A footed bowl heaped with fruit
 6. Wavy stacked rules as a section divider
+
+Two more appear in October:
+
+7. **The roundel:** a papercut flower with serrated leaves inside a stippled circle. The cover seal, and the close of the drinks page
+8. A cluster of roses beside the "Drinks" title, the way the single rose sits beside "Menu"
+
+**How the October booklet sets them.** A wheat row over the wavy rule frames each page, top and bottom. The footer band sets the wordmark in the middle of the wheat row. A boxed wheat-and-wave panel closes the mains column. The heron sits beside `DESER`; the fruit bowl and the basket figure are margin punctuation, one per page.
 
 ### Rules
 
@@ -150,8 +179,8 @@ The equivalent of Umbo's scallop shell, and it already exists.
 - **The wavy rule is the section divider** across the whole site. It is the cheapest, most repeatable piece of the system.
 - **Wheat is the list separator** between menu sections.
 - **Figures are punctuation, not illustration.** One per section, set small in a margin, the way the menu uses them. Never a hero image, never a background pattern.
-- Vectorise all six from the source artwork. Do not trace from the JPEG; get the originals.
-- **Do not add new motifs.** If something new is needed, commission it from whoever drew these.
+- Vectorise all eight from the source artwork. Do not trace from the JPEG or the October photographs; get the originals from Signal-Return.
+- **Do not add new motifs.** If something new is needed, commission it from Signal-Return, the way the roundel arrived.
 
 **Why this and not flowers:** flowers are the room, and the room should be photographed, not illustrated. The papercut world is the menu, it is specifically Polish, it is unique in Detroit dining, and it scales to a divider at 24px and a page ornament at 400px without changing character.
 
@@ -165,6 +194,14 @@ The equivalent of Umbo's scallop shell, and it already exists.
 - **The bow must be redrawn as SVG.** A 2.1MB PNG is the current favicon and the current header logo. This is a required deliverable before any build.
 
 **Open question for the owner:** the bow reads as a gift ribbon, and its filename says "red" while the artwork is orange. Is it the intended permanent mark, or a placeholder? A wordmark pairing the bow with "Roses" set in the menu's Victorian display face would be the strongest version, and needs both the bow source and the display font. Logged in [`assets-needed.md`](assets-needed.md).
+
+### October 2026: the print identity has a wordmark
+
+The October menu carries **no bow**. Its cover is a lockup: the roundel (motif 7) centred above "Roses" set in the "Witamy!" script, both crimson on the menu stock. The roundel is about three quarters of the wordmark's width. The same wordmark sits in the wheat band at the foot of every page, and the roundel closes the drinks page. v1.0 said no wordmark existed; this is one, made by the studio that makes the menu.
+
+- **The site keeps the bow until the lockup arrives as vector.** Then the roundel and wordmark replace it in the header, the favicon and the social cards, and the bow question above closes itself.
+- **Do not crop either from a photograph.** The cover shot is in direct sun at an angle; a traced roundel would lose the stippling that makes it read as print.
+- **Colour:** crimson on `--paper`, `--sage` or `--sage-pale`; paper on `--forest`. Ember stays reserved for the CTA and active states once the bow retires.
 
 ## Style guide
 
@@ -212,7 +249,8 @@ Transparent field on `--paper`, `--border-hair` on three sides and `--border` on
 
 ### Cards, menu rows, dividers
 
-- **Menu row:** dish name (Montserrat 700) on its own line, price inline at the end of the description, matching the printed menu exactly — the menu does not use dot leaders or a right-aligned price column, and neither should the site. Dietary tags `(v)`, `(gf)` inline in the description, as printed.
+- **Menu row:** dish name (Montserrat 700) on its own line, price inline at the end of the description, matching the printed menu exactly: the menu does not use dot leaders or a right-aligned price column, and neither should the site. Dietary tags `(v)`, `(gf)` inline in the description, as printed. October adds `(vo)`, `(gfo)` and `(vg)` with no key on the menu, so the site says only that a tag ending in o is an option on request until the owner confirms the rest.
+- **Drinks rows** follow the same pattern. Wine has no description, so the row is the name and the glass/bottle price pair as printed (`$13/48`).
 - **Menu section:** uppercase label, wheat separator, then rows. `--s-7` between sections.
 - **Card:** `--sage-pale` fill, no border, no shadow, `--s-6` padding, `--radius-sm`.
 - **Divider:** the wavy rule motif, full container width, crimson, `--s-8` above and below.
@@ -223,6 +261,7 @@ Transparent field on `--paper`, `--border-hair` on three sides and `--border` on
 - Square or 4:5 for plates, 3:2 for the room.
 - Every image gets real alt text naming the dish or what is happening. The current site's `"Menu featuring Polish cuisine with various traditional dishes"` is the standard to beat.
 - Illustration and photography never overlap in the same block.
+- **The featured artist is not brand artwork.** Each printed edition gives a page to a Detroit artist, their portrait and work printed in the menu's crimson. On the site, credit them by name in the menu stamp. Reproduce their bio or work only with their permission and as they supply it.
 
 ### Motion
 
@@ -302,7 +341,12 @@ Derived from captions in [`instagram-brand-intel.md`](instagram-brand-intel.md).
 | Montserrat | Visual match to menu section heads and dish names. **Unconfirmed** |
 | EB Garamond | Visual match to menu descriptions, incl. oldstyle figures. **Unconfirmed** |
 | Rejecting Inconsolata | Measured as the live site's face; contradicts the printed menu |
-| *Wycinanki* motif system | Observed, six distinct figures on the printed menu |
+| *Wycinanki* motif system | Observed, six distinct figures on the printed menu; two more on the October menu |
+| Heron, not peacock | Observed, the long bill in the October launch photos |
+| Signal-Return as the source | The restaurant's own caption on the October launch post credits @signalreturn |
+| Roundel and wordmark | Observed, October cover and page footers. Not vectorised: no source file yet |
+| No colour change in October | Re-measured from seven blank-paper samples; even light reads `#B4CAB6` against `#B3CDB4` |
+| Polish section labels | Observed, October menu |
 | Bow as mark | Measured, `redbow.png` used as logo and favicon |
 | Pill button radius | Measured from the live site CTA |
 | Voice rules | Derived from captured captions, quoted in the IG intel |
