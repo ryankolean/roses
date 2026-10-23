@@ -34,13 +34,13 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Render content/menu.md into the pages
+      - name: Render content/menu.md and content/drinks.md into the pages
         run: python3 tools/build_menu.py
 
       - name: Fail if the committed pages were stale
         run: |
           if ! git diff --quiet; then
-            echo "::warning::content/menu.md was ahead of the committed HTML. Deploying the regenerated pages."
+            echo "::warning::content/menu.md or content/drinks.md was ahead of the committed HTML. Deploying the regenerated pages."
             git --no-pager diff --stat
           fi
 

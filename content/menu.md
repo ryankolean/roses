@@ -1,78 +1,83 @@
 ---
-updated: 2026-09-20
+updated: 2026-10-23
 note: The menu changes with what the farms have.
+artist: bree gant
 ---
 
-# Snacks, Salads & Sides
+# Przystawki
 
 ## Bread Platter
-Lillian's Loaves sourdough, caraway butter, Babcia's pickles, dill oil, pickled red onion
+Lillian's Loaves sourdough, caraway butter, Babcia's pickles, dill oil, pickled red onion (vo)
 $24
 
 ## Polish Nachos
 house-made potato chips, Ma Coen's smoked whitefish, cucumbers, caramelized onion, pickled red onion, trout roe and herbed creme fraiche (gf)
 $22
 
-## Pole Town Salad
-Detroit grown greens, dill pickle dressing, parmesan, croutons
+## Poletown Salad
+Detroit grown greens, dill pickle dressing, parmesan, croutons (gfo, vo)
 $16
 
-## Pomidory i Ogórki
-local tomatoes and cucumbers dressed with herbs (v)
-$17
+## Buraki zasmażane
+grilled beets, crème fraiche, goat cheese, greens, confit garlic, chili, dill and caraway (vo)
+$18
 
-## Chłodnik
-chilled beet soup, cucumber, creme fraiche, herbs and egg
-$17
+## Zupa rybna
+smoked whitefish, potatoes, fennel, cream (gf)
+$22
 
 ## Local Kiełbasa
-caramelized onion, pickled red onion, whole grain mustard, dill, creme fraiche
+peppers, caramelized onion, pickled red onion, mustard, dill, creme fraiche (gf)
 $26
+
+## Zapiekanka
+mushrooms, cream, parmesan, herbs
+$22
+
+## Sour Cream Mashed Potatoes
+(gf)
+$15
 
 ## Oysters
 rotating selection, half dozen / dozen
 $27/54
 
-# Mains
+# Danie główne
 
 ## Roses Burger
 sourdough, Marrow dry aged ground beef, bacon jam, mustard, pickled red onion and cabbage slaw
 $23
 
-## Makrela Świeża
-whole fish, crispy skin, dill butter, pickled lemon, herbs (gf)
-$52
+## Schab z kością
+pork chop, cherry, rosé, honey, brown butter, herbs (gf)
+$55
 
-## Pierogi Ruskie
-classic pierogi filled with potato, creme fraiche, bacon jam
-$36
+## Pierogi Ukraiński
+classic pierogi filled with potato, creme fraiche, bacon jam, dill
+$38
 
-## Kotlet
-organic chicken, squash mizeria, Calabrian chili crème fraiche, pickle onions, dill
+## Kaczka confit
+duck leg, caramelized apples and onions (gf)
 $42
 
 ## Kluski Dumpling
-green herb sauce, braised local greens, toasted pumpkin seeds (v, gf)
+squash, mushroom, brown butter, lemon, sage (v, gf, vo)
 $26
 
-## Lamb Gołąbki
-tomato pepper broth, dill oil, preserved lemon creme fraiche (gf)
-$26
-
-## Uszka
-fresh cheese filled dumplings, lemon butter sauce, roasted beets, dill
+## Polish Panade
+sourdough, cabbage, sos pomidorowy, ricotta, parmesan, Detroit greens (vg)
 $24
 
-# Desserts
+# Deser
 
-## Seasonal Berries
-(v, gf)
-$13
+## Gruszka
+orange wine poached pear, sweetened sour cream, cider jelly, caramelized buckwheat (gf, vo)
+$16
 
-## Naleśniki Layer Cake
-with sour cream and seasonal berries
+## Pierogi z owocami
+lemon curd, cherry filling, sweetened sour cream, poppyseed
 $22
 
 ## Chocolate Mousse
-rose whip cream, tart cherries, poppy seeds (gf)
+rose whip cream, tart cherries, poppy seed (gf)
 $16
