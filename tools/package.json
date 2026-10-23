@@ -1,0 +1,13 @@
+{
+  "name": "roses-tools",
+  "private": true,
+  "type": "module",
+  "description": "Dev-only dependencies for tools/build_hero.mjs. Nothing here is published.",
+  "dependencies": {
+    "@summit/hero": "https://codeload.github.com/ryankolean/summit-components/tar.gz/9c04e300709f89664ed6d63f9a78899bb76e6b1c",
+    "@summit/tokens": "https://codeload.github.com/ryankolean/summit-components/tar.gz/931c8a83b8f6d156dbf64dcd710ababe455794ee"
+  },
+  "overrides": {
+    "@summit/schemas": "https://codeload.github.com/ryankolean/summit-components/tar.gz/9395964d53c176edc09b1a3db49b2eef7406aad4"
+  }
+}

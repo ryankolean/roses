@@ -4,3 +4,4 @@
 !.env.example
 _site/
 __pycache__/
+node_modules/

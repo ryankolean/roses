@@ -59,7 +59,7 @@ The launch build is the same script in production mode: URLs moved to the real d
 SITE_MODE=production SITE_URL=https://rosesdetroit.com/ python3 tools/build_site.py
 ```
 
-The site is adopted into the Summit website framework (SUMMIT-253, Level 1). `site/entity.json` and `site/brand.json` are the public facts the framework reads; decisions and the security report live in Summit's private intake repo. Every pull request runs:
+The site is adopted into the Summit website framework (SUMMIT-253, Level 2). `site/entity.json` and `site/brand.json` are the public facts the framework reads; decisions and the security report live in Summit's private intake repo. Every pull request runs:
 
 | Workflow | What it checks |
 |---|---|
@@ -67,6 +67,8 @@ The site is adopted into the Summit website framework (SUMMIT-253, Level 1). `si
 | `security` | The site-security gate: secrets, workflow and built-output scans. A Monday run monitors the live preview |
 
 GitHub Pages cannot send headers, so the content security policy and referrer policy ship as meta tags. HSTS and clickjacking protection need real headers and wait for the production host.
+
+**The hero** is the framework's `@summit/hero` component, rendered once and committed, since the site has no page build. `tools/build_hero.mjs` writes the component's markup into `index.html` (with a `<picture>` around its image, so the AVIF sources stay) and `assets/css/summit-hero.css` (the `--summit-*` tokens from `site/brand.json`, then the component's stylesheet). `style.css` maps those tokens onto the Roses palette. To change the hero, edit the script and run `npm ci --prefix tools && node tools/build_hero.mjs`.
 
 **Photos.** `python3 tools/build_images.py` writes an AVIF for every width plus the smaller JPEGs. To add a photo, put the full-size JPEG in `assets/img/photos`, add it to the script's table, run it, and reference it with a `<picture>` like the others.
 

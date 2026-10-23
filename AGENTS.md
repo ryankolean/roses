@@ -1,7 +1,7 @@
 # AGENTS.md
 
 Concept site for Roses, adopted into the Summit website framework (SUMMIT-243,
-adoption SUMMIT-253 Level 1). Read `README.md` first.
+adoption SUMMIT-253 Level 2). Read `README.md` first.
 
 ## Rules
 
@@ -14,6 +14,11 @@ adoption SUMMIT-253 Level 1). Read `README.md` first.
 - **The menu has one source:** `content/menu.md`. Never hand-edit the blocks
   between `MENU:START`/`MENU:END` or `MENU_JSONLD:START`/`MENU_JSONLD:END`; run
   `python3 tools/build_menu.py`.
+- **The homepage hero is `@summit/hero`.** Never hand-edit the block between
+  `HERO:START`/`HERO:END` or `assets/css/summit-hero.css`; change
+  `tools/build_hero.mjs` or `site/brand.json` and run
+  `npm ci --prefix tools && node tools/build_hero.mjs`. The token remaps and
+  layout that make it look like Roses are in `style.css`.
 - **Publish `_site/`, never the repo root.** `python3 tools/build_site.py` stages
   the public files. A new top-level page or asset folder must be added to its
   allowlist or it will not ship.
