@@ -24,22 +24,23 @@ Five pages, static HTML, no framework. Two small Python scripts run at deploy: t
 | Page | What |
 |---|---|
 | `index.html` | Hero, awards, menu teaser, the room, the week's produce, hours |
-| `menu.html` | The whole menu as text, dated, with `Menu` JSON-LD |
+| `menu.html` | The whole menu and drinks list as text, dated, with `Menu` JSON-LD |
 | `story.html` | 2014 to 2023, September 2025, the producers |
 | `visit.html` | Hours, reservations, map, what to expect |
 | `press.html` | Four awards, pull quotes, links to the originals |
 
 What it fixes, against the live site: correct hours with Tuesday closed, a Resy link in the header on every page, the awards on the homepage, the true 2014 founding, complete `Restaurant` JSON-LD with `alternateName`, `geo`, `award` and `openingHoursSpecification`, real social cards, and a menu that is text.
 
-## The menu is one text file
+## The menu is two text files
 
-`content/menu.md` is the source of truth. It renders into three places, so nothing can drift:
+`content/menu.md` (food) and `content/drinks.md` (drinks) are the source of truth, split the way the printed booklet splits them. They render into four places, so nothing can drift:
 
 1. the menu block on the homepage,
 2. the full menu on `menu.html`,
-3. the `Menu` JSON-LD in `menu.html`'s `<head>`.
+3. the drinks list on `menu.html`,
+4. the `Menu` JSON-LD in `menu.html`'s `<head>`, with the drinks as a nested `Drinks` section.
 
-**To change the menu**, edit [`content/menu.md`](content/menu.md) on github.com, change the `updated:` date at the top, and commit. The `Build and deploy` workflow regenerates the pages and republishes the site in about a minute. No HTML, no local setup.
+**To change the menu**, edit [`content/menu.md`](content/menu.md) or [`content/drinks.md`](content/drinks.md) on github.com, change the `updated:` date at the top, and commit. `artist:` in `menu.md` credits the edition's featured artist. The `Build and deploy` workflow regenerates the pages and republishes the site in about a minute. No HTML, no local setup.
 
 Locally:
 
@@ -96,7 +97,7 @@ Four measured anchors, from [`brand-guidelines.md`](design-catalog/brand-guideli
 |---|---|---|
 | `--sage` | `#B3CDB4` | Printed menu ground, dominant of ~128k sampled pixels |
 | `--crimson` | `#9C1B22` | Printed menu ink and illustration |
-| `--ember` | `#F97743` | `redbow.png`, the logo bow |
+| `--ember` | `#F97743` | `redbow.png`, the live site's logo bow |
 | `--paper` | `#F0ECE6` | The live site's page background |
 
 Type is EB Garamond and Montserrat, both visual matches to the printed menu's faces. The menu's ornate display face could not be identified from a JPEG and is deliberately absent rather than half-matched.
@@ -108,9 +109,10 @@ Every text and background pair in use passes WCAG AA. Three combinations fail an
 Marked on the pages themselves, and tracked in [`assets-needed.md`](design-catalog/assets-needed.md):
 
 - **Photography** is the restaurant's own, from [@roses_detroit](https://www.instagram.com/roses_detroit/), used to demonstrate a direction. Authorship is not credited in their captions, so rights are unconfirmed.
-- **The drinks list** has never been published anywhere, so there was nothing accurate to reproduce.
+- **The drinks list** is transcribed from a low-resolution video of the October printed menu. One price is unreadable and three are low-confidence; see [`assets-needed.md`](design-catalog/assets-needed.md), item 5.
+- **The dietary key** covers `(v)`, `(gf)` and the trailing-o options only; the October menu adds `(vg)` without a key.
 - **Parking, transit and accessibility** specifics are unconfirmed, so the pages say so instead of guessing.
-- **The bow mark** is their 2.1MB PNG. It needs redrawing as SVG.
+- **The logo** is the October menu's roundel and "Roses" wordmark in crimson, traced from a photo of the cover. Signal-Return's vector replaces `assets/img/roundel.svg` and `assets/img/wordmark.svg` when it arrives.
 - **The story page** quotes Molly Mitchell's own Instagram post and would need her permission.
 
 ## Local preview

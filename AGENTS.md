@@ -11,9 +11,10 @@ adoption SUMMIT-253 Level 2). Read `README.md` first.
   `summit verify-split` to enforce this.
 - **Every page says it is a concept and is `noindex, nofollow`** until the owner
   signs. Do not remove the concept banner or the robots meta in a preview build.
-- **The menu has one source:** `content/menu.md`. Never hand-edit the blocks
-  between `MENU:START`/`MENU:END` or `MENU_JSONLD:START`/`MENU_JSONLD:END`; run
-  `python3 tools/build_menu.py`.
+- **The menu has two sources:** `content/menu.md` (food) and
+  `content/drinks.md` (drinks). Never hand-edit the blocks between
+  `MENU:START`/`MENU:END`, `DRINKS:START`/`DRINKS:END` or
+  `MENU_JSONLD:START`/`MENU_JSONLD:END`; run `python3 tools/build_menu.py`.
 - **The homepage hero is `@summit/hero`.** Never hand-edit the block between
   `HERO:START`/`HERO:END` or `assets/css/summit-hero.css`; change
   `tools/build_hero.mjs` or `site/brand.json` and run

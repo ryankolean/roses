@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Render content/menu.md into the pages that show the menu.
+"""Render content/menu.md and content/drinks.md into the pages that show them.
 
-One source file, three outputs: the menu block on the homepage, the menu block
-on menu.html, and the Menu JSON-LD on menu.html. Nothing can drift, because
-nothing is typed twice.
+Two source files, four outputs: the menu block on the homepage, the menu and
+drinks blocks on menu.html, and the Menu JSON-LD on menu.html. Nothing can
+drift, because nothing is typed twice.
 
 Run it with:  python3 tools/build_menu.py
 """
@@ -17,15 +17,17 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 SOURCE = ROOT / "content" / "menu.md"
+DRINKS = ROOT / "content" / "drinks.md"
 
 TARGETS = [
     (ROOT / "index.html", "MENU", "home"),
     (ROOT / "menu.html", "MENU", "full"),
+    (ROOT / "menu.html", "DRINKS", "drinks"),
     (ROOT / "menu.html", "MENU_JSONLD", "jsonld"),
 ]
 
 # Sections shown on the homepage teaser, in order, and how many dishes each.
-HOME_TEASER = {"Snacks, Salads & Sides": 4, "Mains": 4}
+HOME_TEASER = {"Przystawki": 4, "Danie główne": 4}
 
 
 def parse(text):
@@ -104,28 +106,38 @@ def render_sections(sections, indent, limit=None):
     return "\n".join(blocks)
 
 
+def stamp(meta, what="Menu", artist=False):
+    parts = ["%s as of %s" % (what, pretty_date(meta.get("updated", "")))]
+    if meta.get("note"):
+        parts.append(html.escape(meta["note"]))
+    # The printed menu features a Detroit artist each edition; credit them.
+    if artist and meta.get("artist"):
+        parts.append("Featured artist: %s" % html.escape(meta["artist"]))
+    return '      <p class="menu-stamp">%s</p>\n' % " &middot; ".join(parts)
+
+
 def render_home(meta, sections):
-    stamp = (
-        '      <p class="menu-stamp">Menu as of %s &middot; %s</p>\n'
-        % (pretty_date(meta.get("updated", "")), html.escape(meta.get("note", "")))
-    )
     grid = (
         '      <div class="menu-grid">\n%s\n      </div>'
         % render_sections(sections, 8, HOME_TEASER)
     )
-    return stamp + grid
+    return stamp(meta) + grid
 
 
 def render_full(meta, sections):
-    stamp = (
-        '      <p class="menu-stamp">Menu as of %s &middot; %s</p>\n'
-        % (pretty_date(meta.get("updated", "")), html.escape(meta.get("note", "")))
-    )
     grid = (
         '      <div class="menu-grid">\n%s\n      </div>'
         % render_sections(sections, 8)
     )
-    return stamp + grid
+    return stamp(meta, artist=True) + grid
+
+
+def render_drinks(meta, sections):
+    grid = (
+        '      <div class="menu-grid">\n%s\n      </div>'
+        % render_sections(sections, 8)
+    )
+    return stamp(meta, "Drinks") + grid
 
 
 def menu_item(name, desc, price):
@@ -143,27 +155,41 @@ def menu_item(name, desc, price):
     return item
 
 
-def render_jsonld(meta, sections):
+def menu_section(name, rows):
+    return {
+        "@type": "MenuSection",
+        "name": name,
+        "hasMenuItem": [menu_item(n, d, p) for n, d, p in rows],
+    }
+
+
+def render_jsonld(menu, drinks):
+    (meta, sections), (dmeta, dsections) = menu, drinks
     doc = {
         "@context": "https://schema.org",
         "@type": "Menu",
         "name": "Roses dinner menu",
-        "dateModified": meta.get("updated", ""),
+        "dateModified": max(meta.get("updated", ""), dmeta.get("updated", "")),
         "inLanguage": "en-US",
-        "hasMenuSection": [
+        "hasMenuSection": [menu_section(n, rows) for n, rows in sections]
+        + [
             {
                 "@type": "MenuSection",
-                "name": name,
-                "hasMenuItem": [menu_item(n, d, p) for n, d, p in rows],
+                "name": "Drinks",
+                "hasMenuSection": [menu_section(n, rows) for n, rows in dsections],
             }
-            for name, rows in sections
         ],
     }
     body = json.dumps(doc, indent=2, ensure_ascii=False)
     return '<script type="application/ld+json">\n%s\n</script>' % body
 
 
-RENDERERS = {"home": render_home, "full": render_full, "jsonld": render_jsonld}
+RENDERERS = {
+    "home": lambda menu, drinks: render_home(*menu),
+    "full": lambda menu, drinks: render_full(*menu),
+    "drinks": lambda menu, drinks: render_drinks(*drinks),
+    "jsonld": render_jsonld,
+}
 
 
 def splice(path, marker, block):
@@ -181,23 +207,27 @@ def splice(path, marker, block):
     return True
 
 
-def main():
-    if not SOURCE.exists():
-        sys.exit("error: %s is missing" % SOURCE)
-    meta, sections = parse(SOURCE.read_text(encoding="utf-8"))
+def load(path):
+    if not path.exists():
+        sys.exit("error: %s is missing" % path)
+    meta, sections = parse(path.read_text(encoding="utf-8"))
     if not sections:
-        sys.exit("error: no sections parsed from menu.md")
+        sys.exit("error: no sections parsed from %s" % path.name)
+    print(
+        "%s: %d sections, %d items, updated %s"
+        % (path.name, len(sections), sum(len(r) for _, r in sections), meta.get("updated", "?"))
+    )
+    return meta, sections
 
-    dishes = sum(len(rows) for _, rows in sections)
+
+def main():
+    menu, drinks = load(SOURCE), load(DRINKS)
+
     changed = []
     for path, marker, kind in TARGETS:
-        if splice(path, marker, RENDERERS[kind](meta, sections)):
+        if splice(path, marker, RENDERERS[kind](menu, drinks)):
             changed.append("%s (%s)" % (path.name, marker))
 
-    print(
-        "menu.md: %d sections, %d dishes, updated %s"
-        % (len(sections), dishes, meta.get("updated", "?"))
-    )
     print("changed: %s" % (", ".join(changed) if changed else "nothing"))
 
 
