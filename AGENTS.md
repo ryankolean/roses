@@ -22,8 +22,11 @@ adoption SUMMIT-253 Level 1). Read `README.md` first.
   data blocks are fine. Keep the policy identical on all five pages.
 - **Photos go through `tools/build_images.py`** and a `<picture>` with AVIF
   first, like the existing ones.
-- **Motion is one page crossfade and nothing else** (`brand-guidelines.md`,
-  Motion). No scroll reveals, no animation or smooth-scroll library.
+- **Motion follows `brand-guidelines.md`, Motion:** the site draws itself once,
+  then holds still. It lives in `assets/js/motion.js` and `assets/css/motion.css`
+  on GSAP 3.15.0 and ScrollTrigger, self-hosted in `assets/js/vendor/`. The menu
+  text never moves; no loops, scrubbing, parallax or smooth-scroll library.
+  Hidden states come from script only, and reduced motion turns it all off.
 - Branch and open a PR for every change; CI must pass before merging.
 - Conventional commits, no emojis, no em dashes.
 
